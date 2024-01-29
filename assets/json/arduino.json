@@ -1,0 +1,56 @@
+[
+  {
+    "id": "0",
+    "name": "Arduino Mega",
+    "category": "Arduino",
+    "imageUrl": [
+      "https://i0.wp.com/electra.store/wp-content/uploads/2022/07/httpselectra-group.comuploads6b3b65bd8df4b136eea8e46f6e71e8a6.jpg?fit=600%2C600&ssl=1",
+      "https://www.hellasdigital.gr/images/detailed/10/11061-04b.png"
+    ],
+    "oldPrice": "50.5",
+    "sizes": [
+      { "size": "small", "isSelected": false },
+      { "size": "meduim", "isSelected": false },
+      { "size": "large", "isSelected": false }
+    ],
+    "price": "99.55",
+    "description": "Ultrasonic sensor is used for varity of applications",
+    "title": "this is Ultrasonic newest version"
+  },
+  {
+    "id": "1",
+    "name": "Arduino Uno R3",
+    "category": "Sensors",
+    "imageUrl": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Arduino-uno-perspective-transparent.png/1200px-Arduino-uno-perspective-transparent.png",
+      "https://cdn.pixabay.com/photo/2017/03/23/12/32/arduino-2168193_1280.png"
+    ],
+    "oldPrice": "1890.50",
+    "sizes": [
+      { "size": "small", "isSelected": false },
+      { "size": "meduim", "isSelected": false },
+      { "size": "large", "isSelected": false }
+    ],
+    "price": "99.55",
+    "description": "Ultrasonic sensor is used for varity of applications",
+    "title": "this is Ultrasonic newest version"
+  },
+  {
+    "id": "2",
+    "name": "Arduino nano",
+    "category": "Sensors",
+    "imageUrl": [
+      "https://ixen-robotics.com/data-stream?T=R2sm20d%2Bu%2Bg%2Bo%2Bgnvw%2FYeA%3D%3D&C=ZnSQsNpjG8cWr3%2FznID5ig%3D%3D&PK=dFtMxsBggh0%3D&SC=Omz4pOCxjxM%3D&d=GX0ZSo%2F6jFDl9x36aqI7%2BSd7ohs8p7wc",
+      "https://lh4.googleusercontent.com/proxy/9zUFLqlsIkmYlalhS33rOtFl7yIgIaflCP0bLvCnSY1_cTr9I2BGU8tNpbRsU8mRALt-mlRAmGV4EHakpUJJkDzJ6GSH5bEnfxY"
+    ],
+    "oldPrice": "1890.50",
+    "sizes": [
+      { "size": "small", "isSelected": false },
+      { "size": "meduim", "isSelected": false },
+      { "size": "large", "isSelected": false }
+    ],
+    "price": "99.55",
+    "description": "Ultrasonic sensor is used for varity of applications",
+    "title": "this is Ultrasonic newest version"
+  }
+]

@@ -1,0 +1,111 @@
+[
+  {
+    "id": "0",
+    "name": "Ultrasonic Sensor",
+    "category": "Sensors",
+    "imageUrl": [
+      "https://images.prismic.io/circuito/a9672e533234d913b88a7645ec3f69d2cd1e1665_hc-sr04-illustration.png?auto=compress,format",
+      "https://miro.medium.com/v2/resize:fit:626/0*okIBgt8jPMf3xFq2.png"
+    ],
+    "oldPrice": "1890.50",
+    "sizes": [
+      { "size": "small", "isSelected": false },
+      { "size": "meduim", "isSelected": false },
+      { "size": "large", "isSelected": false }
+    ],
+    "price": "99.55",
+    "description": "Ultrasonic sensor is used for varity of applications",
+    "title": "this is Ultrasonic newest version"
+  },
+
+  {
+    "id": "1",
+    "name": "Light Sensor",
+    "category": "Sensors",
+    "imageUrl": [
+      "https://probots.co.in/pub/media/catalog/product/cache/d8ddd0f9b0cd008b57085cd218b48832/l/d/ldr_sensor_module_4_.jpg",
+      "https://market.samm.com/ldr-light-sensor-5mm-light-and-color-sensors-samm-1493-59-B.png"
+    ],
+    "oldPrice": "1890.50",
+    "sizes": [
+      { "size": "small", "isSelected": false },
+      { "size": "meduim", "isSelected": false },
+      { "size": "large", "isSelected": false }
+    ],
+    "price": "99.55",
+    "description": "Ultrasonic sensor is used for varity of applications",
+    "title": "this is Ultrasonic newest version"
+  },
+  {
+    "id": "2",
+    "name": "DHT Sensor",
+    "category": "Sensors",
+    "imageUrl": [
+      "https://www.mysensors.org/uploads/57c3ec0c4d04abe84cd93e0f/image/dht11.png",
+      "https://5.imimg.com/data5/SELLER/Default/2022/9/JA/ZN/SS/43948449/temperature-and-humidity-sensor-module.png"
+    ],
+    "oldPrice": "1890.50",
+    "sizes": [
+      { "size": "small", "isSelected": false },
+      { "size": "meduim", "isSelected": false },
+      { "size": "large", "isSelected": false }
+    ],
+    "price": "99.55",
+    "description": "Ultrasonic sensor is used for varity of applications",
+    "title": "this is Ultrasonic newest version"
+  },
+  {
+    "id": "3",
+    "name": "Water Level Sensor",
+    "category": "Sensors",
+    "imageUrl": [
+      "https://i0.wp.com/www.circuituncle.com/wp-content/uploads/2019/10/Water-Level-Sensor.png?fit=750%2C750&ssl=1",
+      "https://hackster.imgix.net/uploads/attachments/694246/blob_lOM2dIosGT.blob?auto=compress&w=1600&h=1200&fit=min&fm=jpg"
+    ],
+    "oldPrice": "1890.50",
+    "sizes": [
+      { "size": "small", "isSelected": false },
+      { "size": "meduim", "isSelected": false },
+      { "size": "large", "isSelected": false }
+    ],
+    "price": "99.55",
+    "description": "Ultrasonic sensor is used for varity of applications",
+    "title": "this is Ultrasonic newest version"
+  },
+  {
+    "id": "4",
+    "name": "IR sensor",
+    "category": "Sensors",
+    "imageUrl": [
+      "https://vayuyaan-media.s3.ap-south-1.amazonaws.com/wp-content/uploads/2021/04/29104107/Infrared-Obstacle-Avoidance-Sensor-IR-Sensor-Module-Vayuyaan-1-430x430.jpg",
+      "https://europe1.discourse-cdn.com/arduino/original/4X/9/c/f/9cf94d1ec1f18274d33946355628e7713b0b4b2d.png"
+    ],
+    "oldPrice": "1890.50",
+    "sizes": [
+      { "size": "small", "isSelected": false },
+      { "size": "meduim", "isSelected": false },
+      { "size": "large", "isSelected": false }
+    ],
+    "price": "99.55",
+    "description": "Ultrasonic sensor is used for varity of applications",
+    "title": "this is Ultrasonic newest version"
+  },
+  {
+    "id": "5",
+    "name": "Sound sensor",
+    "category": "Sensors",
+    "imageUrl": [
+      "https://electropeak.com/pub/media/catalog/product/cache/95f75205f3b943f313b30831421df8c2/s/e/sen-17-037-1-sound-sensor-ky-037.jpg",
+      "https://www.flyrobo.in/image/cache/catalog/product2/microphone-sound-sensor-module-voice-sensor-high-sensitivity-sound-detection-module-whistle-module-600x600.JPG"
+    ],
+    "oldPrice": "1890.50",
+    "sizes": [
+      { "size": "small", "isSelected": false },
+      { "size": "meduim", "isSelected": false },
+      { "size": "large", "isSelected": false }
+    ],
+    "price": "99.55",
+    "description": "Ultrasonic sensor is used for varity of applications",
+    "title": "this is Ultrasonic newest version"
+  }
+]
