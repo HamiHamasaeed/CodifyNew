@@ -1,10 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:codifyecommerce/models/sensors_model.dart';
 import 'package:codifyecommerce/services/helper.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
-import 'package:codifyecommerce/views/shared/product_cart.dart';
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
+
+import '../shared/home_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -93,117 +92,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 child: Container(
                   padding: const EdgeInsets.only(left: 12),
                   child: TabBarView(controller: _tabController, children: [
-                    Column(
-                      children: [
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.405,
-                            child: FutureBuilder<List<Sensors>>(
-                                future: _arduino,
-                                builder: (context, snapshot) {
-                                  if (snapshot.connectionState ==
-                                      ConnectionState.waiting) {
-                                    return const CircularProgressIndicator();
-                                  } else if (snapshot.hasError) {
-                                    return Text("Error ${snapshot.error}");
-                                  } else {
-                                    final arduino = snapshot.data;
-                                    return ListView.builder(
-                                        itemCount: arduino!.length,
-                                        scrollDirection: Axis.horizontal,
-                                        itemBuilder: (context, index) {
-                                          final myArduino =
-                                              snapshot.data![index];
-                                          return ProductCart(
-                                              price: "\$${myArduino.price}",
-                                              category: myArduino.category,
-                                              id: myArduino.id,
-                                              name: myArduino.name,
-                                              image: myArduino.imageUrl[0]);
-                                        });
-                                  }
-                                })),
-                        Column(
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(12, 20, 12, 20),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "Latest Sensors",
-                                    style: appstyle(
-                                        24, Colors.black, FontWeight.bold),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "Show All",
-                                        style: appstyle(22, Colors.black,
-                                            FontWeight.normal),
-                                      ),
-                                      const Icon(
-                                        Ionicons.caret_forward,
-                                        size: 20,
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.13,
-                          child: ListView.builder(
-                              itemCount: 6,
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.white,
-                                            spreadRadius: 1,
-                                            blurRadius: 0.8,
-                                            offset: Offset(0, 1))
-                                      ],
-                                      color: Color.fromARGB(255, 255, 255, 255),
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(16)),
-                                    ),
-                                    height: MediaQuery.of(context).size.height *
-                                        0.12,
-                                    width: MediaQuery.of(context).size.width *
-                                        0.28,
-                                    child: CachedNetworkImage(
-                                        imageUrl:
-                                            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Arduino-uno-perspective-transparent.png/1200px-Arduino-uno-perspective-transparent.png'),
-                                  ),
-                                );
-                              }),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.405,
-                          color: const Color.fromARGB(255, 11, 7, 255),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.405,
-                          color: Colors.amber,
-                        ),
-                      ],
-                    ),
+                    HomeWidget(arduino: _arduino),
+                    HomeWidget(arduino: _sensor),
+                    HomeWidget(arduino: _other),
                   ]),
                 ),
               )
