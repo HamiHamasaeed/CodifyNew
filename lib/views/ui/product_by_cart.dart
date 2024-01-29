@@ -1,11 +1,8 @@
-import 'package:codifyecommerce/views/shared/stagger_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../models/sensors_model.dart';
 import '../../services/helper.dart';
 import '../shared/app_style.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
 import '../shared/available_products.dart';
 
 class ProductByCart extends StatefulWidget {
