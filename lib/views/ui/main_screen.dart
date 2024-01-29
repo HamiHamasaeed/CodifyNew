@@ -3,11 +3,11 @@
 import 'package:codifyecommerce/controllers/main_screen_provider.dart';
 import 'package:codifyecommerce/views/ui/cart_page.dart';
 import 'package:codifyecommerce/views/ui/home_page.dart';
+import 'package:codifyecommerce/views/ui/product_by_cart.dart';
 import 'package:codifyecommerce/views/ui/profile.dart';
 import 'package:codifyecommerce/views/ui/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../shared/codify_bottom_nav.dart';
 
 // ignore: must_be_immutable
@@ -17,7 +17,7 @@ class MainScreen extends StatelessWidget {
   List<Widget> pageList = const [
     HomePage(),
     SearchPage(),
-    HomePage(),
+    ProductByCart(),
     CartPage(),
     Profile()
   ];
