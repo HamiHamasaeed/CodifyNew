@@ -64,10 +64,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       Text("Codify",
                           style: appstyleWithHeight(
                               42, Colors.white, FontWeight.bold, 1.5)),
-                      Text("Collection",
+                      Text("Shop",
                           style: appstyleWithHeight(
                               42, Colors.white, FontWeight.bold, 1.2)),
                       TabBar(
+                          dividerColor: Colors.transparent,
                           padding: EdgeInsets.zero,
                           indicatorSize: TabBarIndicatorSize.label,
                           indicatorColor: Colors.transparent,
@@ -92,9 +93,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 child: Container(
                   padding: const EdgeInsets.only(left: 12),
                   child: TabBarView(controller: _tabController, children: [
-                    HomeWidget(arduino: _arduino),
-                    HomeWidget(arduino: _sensor),
-                    HomeWidget(arduino: _other),
+                    HomeWidget(
+                      arduino: _arduino,
+                      tabIndex: 0,
+                    ),
+                    HomeWidget(
+                      arduino: _sensor,
+                      tabIndex: 1,
+                    ),
+                    HomeWidget(
+                      arduino: _other,
+                      tabIndex: 2,
+                    ),
                   ]),
                 ),
               )

@@ -1,3 +1,4 @@
+import 'package:codifyecommerce/views/ui/product_by_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -10,9 +11,11 @@ class HomeWidget extends StatelessWidget {
   const HomeWidget({
     super.key,
     required Future<List<Sensors>> arduino,
+    required this.tabIndex,
   }) : _arduino = arduino;
 
   final Future<List<Sensors>> _arduino;
+  final int tabIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -55,17 +58,30 @@ class HomeWidget extends StatelessWidget {
                     "Latest Sensors",
                     style: appstyle(24, Colors.black, FontWeight.bold),
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        "Show All",
-                        style: appstyle(22, Colors.black, FontWeight.normal),
-                      ),
-                      const Icon(
-                        Ionicons.caret_forward,
-                        size: 20,
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductByCart(
+                            tabIndex: tabIndex,
+                          ),
+                        ),
+                      );
+                      print(tabIndex);
+                    },
+                    child: Row(
+                      children: [
+                        Text(
+                          "Show All",
+                          style: appstyle(22, Colors.black, FontWeight.normal),
+                        ),
+                        const Icon(
+                          Ionicons.caret_forward,
+                          size: 20,
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),

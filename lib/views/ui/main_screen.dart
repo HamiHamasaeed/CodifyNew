@@ -3,7 +3,6 @@
 import 'package:codifyecommerce/controllers/main_screen_provider.dart';
 import 'package:codifyecommerce/views/ui/cart_page.dart';
 import 'package:codifyecommerce/views/ui/home_page.dart';
-import 'package:codifyecommerce/views/ui/product_by_cart.dart';
 import 'package:codifyecommerce/views/ui/profile.dart';
 import 'package:codifyecommerce/views/ui/search_page.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,7 @@ class MainScreen extends StatelessWidget {
   List<Widget> pageList = const [
     HomePage(),
     SearchPage(),
-    ProductByCart(),
+    HomePage(),
     CartPage(),
     Profile()
   ];

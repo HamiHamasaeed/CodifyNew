@@ -1,3 +1,5 @@
+import 'package:codifyecommerce/views/shared/category_btn.dart';
+import 'package:codifyecommerce/views/shared/custom_spacer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../models/sensors_model.dart';
@@ -6,7 +8,9 @@ import '../shared/app_style.dart';
 import '../shared/available_products.dart';
 
 class ProductByCart extends StatefulWidget {
-  const ProductByCart({super.key});
+  const ProductByCart({super.key, required this.tabIndex});
+
+  final int tabIndex;
 
   @override
   State<ProductByCart> createState() => _ProductByCartState();
@@ -32,6 +36,15 @@ class _ProductByCartState extends State<ProductByCart>
   void getOthersFromHelper() {
     _other = Helper().getOthers();
   }
+
+  List<String> brand = [
+    "assets/images/arduino.png",
+    "assets/images/arduino.png",
+    "assets/images/arduino.png",
+    "assets/images/raspberrypi.png",
+    "assets/images/raspberrypi.png",
+    "assets/images/raspberrypi.png",
+  ];
 
   @override
   void initState() {
@@ -73,7 +86,7 @@ class _ProductByCartState extends State<ProductByCart>
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.pop(context);
+                            filter();
                           },
                           child: const Icon(FontAwesomeIcons.sliders,
                               color: Colors.white),
@@ -82,6 +95,7 @@ class _ProductByCartState extends State<ProductByCart>
                     ),
                   ),
                   TabBar(
+                      dividerColor: Colors.transparent,
                       padding: EdgeInsets.zero,
                       indicatorSize: TabBarIndicatorSize.label,
                       indicatorColor: Colors.transparent,
@@ -114,10 +128,124 @@ class _ProductByCartState extends State<ProductByCart>
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Future<dynamic> filter() {
+    double _value = 100;
+    return showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        barrierColor: Colors.white54,
+        context: context,
+        builder: (context) => Container(
+              height: MediaQuery.of(context).size.height * 0.84,
+              width: MediaQuery.of(context).size.width,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(25),
+                    topLeft: Radius.circular(25)),
+              ),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    height: 5,
+                    width: 14,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      color: Colors.black38,
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.7,
+                    child: Column(
+                      children: [
+                        const CustomSpacer(),
+                        Text(
+                          "Filter",
+                          style: appstyle(40, Colors.black, FontWeight.bold),
+                        ),
+                        const CustomSpacer(),
+                        Text(
+                          "Type",
+                          style: appstyle(20, Colors.black, FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Row(
+                          children: [
+                            CategoryBtn(
+                                buttonColor: Colors.black, label: "Arduino"),
+                            CategoryBtn(
+                                buttonColor: Colors.blueGrey, label: "Sensors"),
+                            CategoryBtn(
+                                buttonColor: Colors.blueGrey, label: "Drivers"),
+                          ],
+                        ),
+                        const CustomSpacer(),
+                        Text(
+                          "Price",
+                          style: appstyle(20, Colors.black, FontWeight.bold),
+                        ),
+                        const CustomSpacer(),
+                        Slider(
+                            activeColor: Colors.black,
+                            inactiveColor: Colors.grey,
+                            thumbColor: Colors.black,
+                            max: 500,
+                            divisions: 50,
+                            label: _value.toString(),
+                            secondaryTrackValue: 200,
+                            value: _value,
+                            onChanged: (double value) {}),
+                        const CustomSpacer(),
+                        Text(
+                          "Brand",
+                          style: appstyle(20, Colors.black, FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          height: 100,
+                          child: ListView.builder(
+                            itemCount: brand.length,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.all(8),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey.shade200,
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(12),
+                                      )),
+                                  child: Image.asset(
+                                    brand[index],
+                                    height: 80,
+                                    width: 80,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ));
   }
 }
