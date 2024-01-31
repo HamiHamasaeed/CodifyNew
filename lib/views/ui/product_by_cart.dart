@@ -94,7 +94,7 @@ class _ProductByCartState extends State<ProductByCart>
                       ],
                     ),
                   ),
-                  TabBar(
+                  TabBar(                     
                       dividerColor: Colors.transparent,
                       padding: EdgeInsets.zero,
                       indicatorSize: TabBarIndicatorSize.label,

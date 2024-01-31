@@ -1,4 +1,5 @@
 import 'package:codifyecommerce/controllers/main_screen_provider.dart';
+import 'package:codifyecommerce/controllers/product_provider.dart';
 import 'package:codifyecommerce/views/ui/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -6,6 +7,7 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => MainScreenNotifier()),
+    ChangeNotifierProvider(create: (context) => ProductNotifier())
   ], child: const MyApp()));
 }
 

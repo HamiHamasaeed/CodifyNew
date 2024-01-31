@@ -1,4 +1,5 @@
 import 'package:codifyecommerce/views/ui/product_by_cart.dart';
+import 'package:codifyecommerce/views/ui/product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -37,12 +38,22 @@ class HomeWidget extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         final myArduino = snapshot.data![index];
-                        return ProductCart(
-                            price: "\$${myArduino.price}",
-                            category: myArduino.category,
-                            id: myArduino.id,
-                            name: myArduino.name,
-                            image: myArduino.imageUrl[0]);
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ProductPage(
+                                        id: myArduino.id,
+                                        category: myArduino.category)));
+                          },
+                          child: ProductCart(
+                              price: "\$${myArduino.price}",
+                              category: myArduino.category,
+                              id: myArduino.id,
+                              name: myArduino.name,
+                              image: myArduino.imageUrl[0]),
+                        );
                       });
                 }
               }),
@@ -55,7 +66,7 @@ class HomeWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Latest Sensors",
+                    "Latest Products",
                     style: appstyle(24, Colors.black, FontWeight.bold),
                   ),
                   GestureDetector(
@@ -63,9 +74,8 @@ class HomeWidget extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProductByCart(
-                            tabIndex: tabIndex,
-                          ),
+                          builder: (context) =>
+                              ProductByCart(tabIndex: tabIndex),
                         ),
                       );
                       print(tabIndex);

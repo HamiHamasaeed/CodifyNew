@@ -1,8 +1,8 @@
 import 'package:codifyecommerce/models/sensors_model.dart';
 import 'package:codifyecommerce/services/helper.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
+import 'package:codifyecommerce/views/shared/custom_spacer.dart';
 import 'package:flutter/material.dart';
-
 import '../shared/home_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -61,12 +61,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Codify",
-                          style: appstyleWithHeight(
-                              42, Colors.white, FontWeight.bold, 1.5)),
-                      Text("Shop",
-                          style: appstyleWithHeight(
-                              42, Colors.white, FontWeight.bold, 1.2)),
+                      const CustomSpacer(),
+                      Image.asset(
+                        ("assets/images/codifyLogo.png"),
+                        width: 180,
+                      ),
+                      const CustomSpacer(),
+                      // Text("Shop",
+                      //     style: appstyleWithHeight(
+                      //         42, Colors.white, FontWeight.bold, 1.2)),
                       TabBar(
                           dividerColor: Colors.transparent,
                           padding: EdgeInsets.zero,
