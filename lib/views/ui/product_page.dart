@@ -4,9 +4,11 @@ import 'package:codifyecommerce/services/helper.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 import '../../models/sensors_model.dart';
+import '../shared/add_to_cart.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key, required this.id, required this.category});
@@ -20,6 +22,7 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   final PageController pageController = PageController();
+  final _cartBox = Hive.box('cart_box');
 
   late Future<Sensors> _product;
 
@@ -33,6 +36,10 @@ class _ProductPageState extends State<ProductPage> {
     }
   }
 
+  Future<void> _createCart(Map<String, dynamic> newCart) async {
+    await _cartBox.add(newCart);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -42,6 +49,7 @@ class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color(0xeef2f2f2),
         body: FutureBuilder<Sensors>(
             future: _product,
             builder: (context, snapshot) {
@@ -66,6 +74,7 @@ class _ProductPageState extends State<ProductPage> {
                                 GestureDetector(
                                   onTap: () {
                                     Navigator.pop(context);
+                                    productNotifier.arduinoSize.clear();
                                   },
                                   child: const Icon(Ionicons.close_sharp),
                                 ),
@@ -108,7 +117,7 @@ class _ProductPageState extends State<ProductPage> {
                                                 .size
                                                 .width,
                                             color: const Color.fromARGB(
-                                                255, 255, 255, 255),
+                                                255, 240, 233, 233),
                                             child: CachedNetworkImage(
                                               imageUrl: product.imageUrl[index],
                                               fit: BoxFit.contain,
@@ -221,7 +230,7 @@ class _ProductPageState extends State<ProductPage> {
                                                   style: appstyle(
                                                       26,
                                                       Colors.black,
-                                                      FontWeight.w500),
+                                                      FontWeight.w600),
                                                 ),
                                                 Row(
                                                   children: [
@@ -248,6 +257,171 @@ class _ProductPageState extends State<ProductPage> {
                                                 ),
                                               ],
                                             ),
+                                            const SizedBox(height: 20),
+                                            Column(
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "Select Sizes",
+                                                      style: appstyle(
+                                                          20,
+                                                          Colors.black,
+                                                          FontWeight.w600),
+                                                    ),
+                                                    const SizedBox(width: 20),
+                                                    Text(
+                                                      "View size guide",
+                                                      style: appstyle(
+                                                          20,
+                                                          Colors.grey,
+                                                          FontWeight.w600),
+                                                    ),
+                                                  ],
+                                                ),
+                                                const SizedBox(height: 10),
+                                                SizedBox(
+                                                  height: 40,
+                                                  child: ListView.builder(
+                                                      itemCount: 3,
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      padding: EdgeInsets.zero,
+                                                      itemBuilder:
+                                                          (context, index) {
+                                                        final sizes =
+                                                            productNotifier
+                                                                    .arduinoSize[
+                                                                index];
+                                                        return Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .symmetric(
+                                                                  horizontal:
+                                                                      8.0),
+                                                          child: ChoiceChip(
+                                                            showCheckmark:
+                                                                false,
+                                                            shape:
+                                                                RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          16),
+                                                              side: const BorderSide(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  width: 1,
+                                                                  style:
+                                                                      BorderStyle
+                                                                          .solid),
+                                                            ),
+                                                            disabledColor:
+                                                                Colors.white,
+                                                            label: Text(
+                                                              sizes['size'],
+                                                              style: appstyle(
+                                                                  18,
+                                                                  sizes['isSelected']
+                                                                      ? Colors
+                                                                          .white
+                                                                      : Colors
+                                                                          .black87,
+                                                                  FontWeight
+                                                                      .w500),
+                                                            ),
+                                                            selectedColor:
+                                                                Colors.black,
+                                                            selected: sizes[
+                                                                'isSelected'],
+                                                            onSelected:
+                                                                (newState) {
+                                                              if (productNotifier
+                                                                  .sizes
+                                                                  .contains(sizes[
+                                                                      'size'])) {
+                                                                productNotifier
+                                                                    .sizes
+                                                                    .remove(sizes[
+                                                                        'size']);
+                                                              } else {
+                                                                productNotifier
+                                                                    .sizes
+                                                                    .add(sizes[
+                                                                        'size']);
+                                                              }
+                                                              print(
+                                                                  productNotifier
+                                                                      .sizes);
+                                                              productNotifier
+                                                                  .toggleCheck(
+                                                                      index);
+                                                            },
+                                                          ),
+                                                        );
+                                                      }),
+                                                )
+                                              ],
+                                            ),
+                                            const SizedBox(height: 10),
+                                            const Divider(
+                                              indent: 10,
+                                              endIndent: 10,
+                                              color: Colors.black,
+                                            ),
+                                            const SizedBox(height: 10),
+                                            SizedBox(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.8,
+                                              child: Text(
+                                                product.title,
+                                                style: appstyle(
+                                                    26,
+                                                    Colors.black,
+                                                    FontWeight.w700),
+                                              ),
+                                            ),
+                                            const SizedBox(height: 10),
+                                            Text(
+                                              product.description,
+                                              maxLines: 5,
+                                              textAlign: TextAlign.justify,
+                                              style: appstyle(
+                                                  14,
+                                                  const Color.fromARGB(
+                                                      255, 100, 100, 100),
+                                                  FontWeight.normal),
+                                            ),
+                                            const SizedBox(height: 10),
+                                            Align(
+                                              alignment: Alignment.bottomCenter,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 12),
+                                                child: AddToCartBtn(
+                                                  label: "Add To Cart",
+                                                  onTap: () async {
+                                                    _createCart({
+                                                      "id": product.id,
+                                                      "name": product.name,
+                                                      "category":
+                                                          product.category,
+                                                      "imageUrl":
+                                                          product.imageUrl,
+                                                      "price": product.price,
+                                                      "qty": 1,
+                                                      "sizes":
+                                                          productNotifier.sizes
+                                                    });
+                                                    productNotifier.sizes
+                                                        .clear();
+                                                    Navigator.pop(context);
+                                                  },
+                                                ),
+                                              ),
+                                            )
                                           ],
                                         ),
                                       ),

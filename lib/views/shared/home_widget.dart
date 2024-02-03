@@ -1,7 +1,9 @@
+import 'package:codifyecommerce/controllers/product_provider.dart';
 import 'package:codifyecommerce/views/ui/product_by_cart.dart';
 import 'package:codifyecommerce/views/ui/product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:provider/provider.dart';
 
 import '../../models/sensors_model.dart';
 import 'app_style.dart';
@@ -20,6 +22,8 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var productNotifier = Provider.of<ProductNotifier>(context);
+
     return Column(
       children: [
         SizedBox(
@@ -40,6 +44,8 @@ class HomeWidget extends StatelessWidget {
                         final myArduino = snapshot.data![index];
                         return GestureDetector(
                           onTap: () {
+                            productNotifier.arduinoSize = myArduino.sizes;
+                            // print(productNotifier.arduinoSize);
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
