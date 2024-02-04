@@ -103,8 +103,7 @@ class _CartPageState extends State<CartPage> {
                                         Padding(
                                           padding: const EdgeInsets.all(12),
                                           child: CachedNetworkImage(
-                                            imageUrl:
-                                                'assets/images/arduino.png',
+                                            imageUrl: data['imageUrl'][0],
                                             width: 70,
                                             height: 70,
                                             fit: BoxFit.fill,

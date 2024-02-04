@@ -4,7 +4,6 @@ import 'package:codifyecommerce/views/ui/product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
-
 import '../../models/sensors_model.dart';
 import 'app_style.dart';
 import 'new_arduino.dart';

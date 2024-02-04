@@ -13,12 +13,12 @@ import '../shared/codify_bottom_nav.dart';
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
 
-  List<Widget> pageList = const [
-    HomePage(),
-    SearchPage(),
-    HomePage(),
+  List<Widget> pageList = [
+    const HomePage(),
+    const SearchPage(),
+    const HomePage(),
     CartPage(),
-    Profile()
+    const Profile()
   ];
 
   @override
