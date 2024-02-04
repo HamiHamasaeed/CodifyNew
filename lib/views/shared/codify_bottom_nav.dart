@@ -47,8 +47,8 @@ class CodifyBottomNav extends StatelessWidget {
                     mainScreenNotifier.pageIndex = 2;
                   },
                   icon: mainScreenNotifier.pageIndex == 2
-                      ? Ionicons.add
-                      : Ionicons.add_circle_outline,
+                      ? Ionicons.heart
+                      : Ionicons.heart_outline,
                 ),
                 BottomNav(
                   onTap: () {

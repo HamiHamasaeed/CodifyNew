@@ -2,6 +2,7 @@
 
 import 'package:codifyecommerce/controllers/main_screen_provider.dart';
 import 'package:codifyecommerce/views/ui/cart_page.dart';
+import 'package:codifyecommerce/views/ui/favorite_page.dart';
 import 'package:codifyecommerce/views/ui/home_page.dart';
 import 'package:codifyecommerce/views/ui/profile.dart';
 import 'package:codifyecommerce/views/ui/search_page.dart';
@@ -13,12 +14,12 @@ import '../shared/codify_bottom_nav.dart';
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
 
-  List<Widget> pageList = [
-    const HomePage(),
-    const SearchPage(),
-    const HomePage(),
+  List<Widget> pageList = const [
+    HomePage(),
+    SearchPage(),
+    FavoritePage(),
     CartPage(),
-    const Profile()
+    Profile()
   ];
 
   @override

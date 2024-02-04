@@ -5,6 +5,8 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ionicons/ionicons.dart';
 
+import '../shared/check_out_btn.dart';
+
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
 
@@ -35,6 +37,7 @@ class _CartPageState extends State<CartPage> {
     cart = cartData.reversed.toList();
 
     return Scaffold(
+      backgroundColor: const Color(0xffe2e2e2),
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: Stack(
@@ -45,7 +48,8 @@ class _CartPageState extends State<CartPage> {
                 const SizedBox(height: 40),
                 GestureDetector(
                     onTap: () {
-                      Navigator.pop(context);
+                      print(cart);
+                      // Navigator.pop(context);
                     },
                     child: const Icon(
                       Ionicons.close,
@@ -124,12 +128,88 @@ class _CartPageState extends State<CartPage> {
                                                     16,
                                                     Colors.black,
                                                     FontWeight.bold),
-                                              )
+                                              ),
+                                              const SizedBox(height: 5),
+                                              Text(
+                                                data['category'],
+                                                style: appstyle(14, Colors.grey,
+                                                    FontWeight.w600),
+                                              ),
+                                              const SizedBox(height: 5),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    data['price'],
+                                                    style: appstyle(
+                                                        20,
+                                                        Colors.black,
+                                                        FontWeight.w600),
+                                                  ),
+                                                  const SizedBox(width: 40),
+                                                  Text("Size",
+                                                      style: appstyle(
+                                                          18,
+                                                          Colors.grey,
+                                                          FontWeight.w600)),
+                                                  const SizedBox(width: 15),
+                                                  Text(
+                                                    "${data['sizes']}",
+                                                    style: appstyle(
+                                                        18,
+                                                        Colors.grey,
+                                                        FontWeight.w600),
+                                                  )
+                                                ],
+                                              ),
                                             ],
                                           ),
                                         ),
                                       ],
-                                    )
+                                    ),
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8),
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(16)),
+                                            ),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {},
+                                                  child: const Icon(
+                                                    Ionicons.add_circle,
+                                                    size: 25,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  data['qty'].toString(),
+                                                  style: appstyle(
+                                                      16,
+                                                      Colors.black,
+                                                      FontWeight.w600),
+                                                ),
+                                                InkWell(
+                                                  onTap: () {},
+                                                  child: const Icon(
+                                                    Ionicons.remove_circle,
+                                                    size: 25,
+                                                    color: Colors.blueGrey,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ),
@@ -139,6 +219,15 @@ class _CartPageState extends State<CartPage> {
                       }),
                 )
               ],
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: CheckOutButton(
+                label: "Tap To Checkout",
+                onTap: () {
+                  print(cart);
+                },
+              ),
             )
           ],
         ),
