@@ -7,6 +7,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
+import '../../models/constants.dart';
 import '../../models/sensors_model.dart';
 import '../shared/add_to_cart.dart';
 
@@ -23,6 +24,7 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   final PageController pageController = PageController();
   final _cartBox = Hive.box('cart_box');
+  final _favBox = Hive.box('fav_box');
 
   late Future<Sensors> _product;
 
@@ -38,6 +40,23 @@ class _ProductPageState extends State<ProductPage> {
 
   Future<void> _createCart(Map<String, dynamic> newCart) async {
     await _cartBox.add(newCart);
+  }
+
+  Future<void> _createFav(Map<String, dynamic> addFav) async {
+    await _favBox.add(addFav);
+    getFavorites();
+  }
+
+  getFavorites() {
+    final favData = _favBox.keys.map((key) {
+      final item = _favBox.get(key);
+
+      return {"key": key, "id": item["id"]};
+    }).toList();
+
+    favor = favData.toList();
+    ids = favor.map((item) => item['id']).toList();
+    setState(() {});
   }
 
   @override
