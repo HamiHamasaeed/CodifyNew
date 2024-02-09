@@ -12,13 +12,13 @@ class ProductCart extends StatefulWidget {
       required this.category,
       required this.id,
       required this.name,
-      required this.image});
+      required this.imageUrl});
 
   final String price;
   final String category;
   final String id;
   final String name;
-  final String image;
+  final String imageUrl;
 
   @override
   State<ProductCart> createState() => _ProductCartState();
@@ -69,15 +69,15 @@ class _ProductCartState extends State<ProductCart> {
                   Container(
                     height: MediaQuery.of(context).size.height * 0.23,
                     decoration: BoxDecoration(
-                        image:
-                            DecorationImage(image: NetworkImage(widget.image))),
+                        image: DecorationImage(
+                            image: NetworkImage(widget.imageUrl))),
                   ),
                   Positioned(
                       right: 10,
                       top: 10,
                       child: GestureDetector(
                         onTap: () async {
-                          print(getFavorites());
+                          // print(getFavorites());
                           if (ids.contains(widget.id)) {
                             Navigator.push(
                                 context,
@@ -90,7 +90,7 @@ class _ProductCartState extends State<ProductCart> {
                               "name": widget.name,
                               "category": widget.category,
                               "price": widget.price,
-                              "imageUrl": widget.image
+                              "imageUrl": widget.imageUrl[0]
                             });
                           }
                         },

@@ -2,12 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:codifyecommerce/controllers/product_provider.dart';
 import 'package:codifyecommerce/services/helper.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
+import 'package:codifyecommerce/views/ui/favorite_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
-import '../../models/constants.dart';
+import '../../controllers/favoirte_provider.dart';
 import '../../models/sensors_model.dart';
 import '../shared/add_to_cart.dart';
 
@@ -44,19 +45,6 @@ class _ProductPageState extends State<ProductPage> {
 
   Future<void> _createFav(Map<String, dynamic> addFav) async {
     await _favBox.add(addFav);
-    getFavorites();
-  }
-
-  getFavorites() {
-    final favData = _favBox.keys.map((key) {
-      final item = _favBox.get(key);
-
-      return {"key": key, "id": item["id"]};
-    }).toList();
-
-    favor = favData.toList();
-    ids = favor.map((item) => item['id']).toList();
-    setState(() {});
   }
 
   @override
@@ -67,6 +55,9 @@ class _ProductPageState extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
+    var favoitresNotifier =
+        Provider.of<FavoriteNotifier>(context, listen: true);
+    favoitresNotifier.getFavorites;
     return Scaffold(
         backgroundColor: const Color(0xeef2f2f2),
         body: FutureBuilder<Sensors>(
@@ -148,9 +139,40 @@ class _ProductPageState extends State<ProductPage> {
                                                     .height *
                                                 0.105,
                                             right: 15,
-                                            child: const Icon(
-                                              Ionicons.heart_outline,
-                                              color: Colors.blueGrey,
+                                            child: Consumer<FavoriteNotifier>(
+                                              builder: (BuildContext context,
+                                                  favoriteNotifier,
+                                                  Widget? child) {
+                                                return GestureDetector(
+                                                  onTap: () {
+                                                    if (favoriteNotifier.ids
+                                                        .contains(widget.id)) {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  const FavoritePage()));
+                                                    } else {
+                                                      _createFav({
+                                                        "id": product.id,
+                                                        "name": product.name,
+                                                        "category":
+                                                            product.category,
+                                                        "price": product.price,
+                                                        "imageUrl":
+                                                            product.imageUrl[0]
+                                                      });
+                                                    }
+                                                    setState(() {});
+                                                  },
+                                                  child: favoriteNotifier.ids
+                                                          .contains(product.id)
+                                                      ? const Icon(
+                                                          Ionicons.heart)
+                                                      : const Icon(Ionicons
+                                                          .heart_outline),
+                                                );
+                                              },
                                             ),
                                           ),
                                           Positioned(

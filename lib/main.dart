@@ -1,3 +1,4 @@
+import 'package:codifyecommerce/controllers/favoirte_provider.dart';
 import 'package:codifyecommerce/controllers/main_screen_provider.dart';
 import 'package:codifyecommerce/controllers/product_provider.dart';
 import 'package:codifyecommerce/views/ui/main_screen.dart';
@@ -11,10 +12,11 @@ void main() async {
   await Hive.initFlutter();
   await Hive.openBox("cart_box");
   await Hive.openBox("fav_box");
-  
+
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => MainScreenNotifier()),
-    ChangeNotifierProvider(create: (context) => ProductNotifier())
+    ChangeNotifierProvider(create: (context) => ProductNotifier()),
+    ChangeNotifierProvider(create: (context) => FavoriteNotifier())
   ], child: const MyApp()));
 }
 

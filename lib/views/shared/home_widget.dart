@@ -57,7 +57,7 @@ class HomeWidget extends StatelessWidget {
                               category: myArduino.category,
                               id: myArduino.id,
                               name: myArduino.name,
-                              image: myArduino.imageUrl[0]),
+                              imageUrl: myArduino.imageUrl[0]),
                         );
                       });
                 }

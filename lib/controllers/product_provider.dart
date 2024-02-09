@@ -8,7 +8,7 @@ class ProductNotifier extends ChangeNotifier {
 
   set activePage(int newIndex) {
     _activePage = newIndex;
-    notifyListeners();
+    notifyListeners(); 
   }
 
   List<dynamic> get arduinoSize => _arduinoSize;
