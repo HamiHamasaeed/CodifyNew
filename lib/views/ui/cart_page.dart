@@ -2,9 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:provider/provider.dart';
 
+import '../../controllers/cart_provider.dart';
 import '../shared/check_out_btn.dart';
 
 class CartPage extends StatefulWidget {
@@ -15,26 +16,10 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  final _cartBox = Hive.box("cart_box");
-
   @override
   Widget build(BuildContext context) {
-    List<dynamic> cart = [];
-    final cartData = _cartBox.keys.map((key) {
-      final item = _cartBox.get(key);
-      return {
-        "key": key,
-        "id": item['id'],
-        "category": item['category'],
-        "name": item['name'],
-        "imageUrl": item['imageUrl'],
-        "price": item['price'],
-        "qty": item['qty'],
-        "sizes": item['sizes'],
-      };
-    }).toList();
-
-    cart = cartData.reversed.toList();
+    var cartProvider = Provider.of<CartProvider>(context);
+    cartProvider.getCart();
 
     return Scaffold(
       backgroundColor: const Color(0xffe2e2e2),
@@ -48,7 +33,6 @@ class _CartPageState extends State<CartPage> {
                 const SizedBox(height: 40),
                 GestureDetector(
                     onTap: () {
-                      print(cart);
                       // Navigator.pop(context);
                     },
                     child: const Icon(
@@ -64,9 +48,9 @@ class _CartPageState extends State<CartPage> {
                   height: MediaQuery.of(context).size.height * 0.65,
                   child: ListView.builder(
                       padding: EdgeInsets.zero,
-                      itemCount: cart.length,
+                      itemCount: cartProvider.cart.length,
                       itemBuilder: (context, index) {
-                        final data = cart[index];
+                        final data = cartProvider.cart[index];
                         return Padding(
                           padding: const EdgeInsets.all(8),
                           child: ClipRRect(
@@ -224,9 +208,7 @@ class _CartPageState extends State<CartPage> {
               alignment: Alignment.bottomCenter,
               child: CheckOutButton(
                 label: "Tap To Checkout",
-                onTap: () {
-                  print(cart);
-                },
+                onTap: () {},
               ),
             )
           ],

@@ -1,3 +1,4 @@
+import 'package:codifyecommerce/controllers/cart_provider.dart';
 import 'package:codifyecommerce/controllers/favoirte_provider.dart';
 import 'package:codifyecommerce/controllers/main_screen_provider.dart';
 import 'package:codifyecommerce/controllers/product_provider.dart';
@@ -16,7 +17,8 @@ void main() async {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => MainScreenNotifier()),
     ChangeNotifierProvider(create: (context) => ProductNotifier()),
-    ChangeNotifierProvider(create: (context) => FavoriteNotifier())
+    ChangeNotifierProvider(create: (context) => FavoriteNotifier()),
+    ChangeNotifierProvider(create: (context) => CartProvider())
   ], child: const MyApp()));
 }
 

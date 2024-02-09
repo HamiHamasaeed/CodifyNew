@@ -1,9 +1,7 @@
 import 'package:codifyecommerce/controllers/favoirte_provider.dart';
-import 'package:codifyecommerce/models/constants.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
 import 'package:codifyecommerce/views/ui/favorite_page.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 
@@ -80,6 +78,7 @@ class _ProductCartState extends State<ProductCart> {
                                 "imageUrl": widget.imageUrl
                               });
                             }
+                            setState(() {});
                           },
                           child: favoritesNotifier.ids.contains(widget.id)
                               ? const Icon(Ionicons.heart)
