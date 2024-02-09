@@ -1,7 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:codifyecommerce/models/constants.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
+import 'package:codifyecommerce/views/ui/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:ionicons/ionicons.dart';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({super.key});
@@ -102,12 +105,53 @@ class _FavoritePageState extends State<FavoritePage> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(product['name']),
+                                        Text(
+                                          product['name'],
+                                          style: appstyle(16, Colors.black,
+                                              FontWeight.bold),
+                                        ),
+                                        const SizedBox(height: 5),
+                                        Text(
+                                          product['category'],
+                                          style: appstyle(
+                                              14, Colors.grey, FontWeight.w600),
+                                        ),
+                                        const SizedBox(height: 5),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "${product['price']}",
+                                              style: appstyle(18, Colors.black,
+                                                  FontWeight.w600),
+                                            )
+                                          ],
+                                        )
                                       ],
                                     ),
                                   )
                                 ],
                               ),
+                              Padding(
+                                padding: const EdgeInsets.all(8),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    _deleteFav(product['key']);
+                                    ids.removeWhere(
+                                        (element) => element == product['id']);
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => MainScreen(),
+                                        ));
+                                  },
+                                  child: const Icon(
+                                    Ionicons.heart_dislike,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                         ),

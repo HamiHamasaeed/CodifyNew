@@ -90,7 +90,7 @@ class _ProductCartState extends State<ProductCart> {
                               "name": widget.name,
                               "category": widget.category,
                               "price": widget.price,
-                              "imageUrl": widget.imageUrl[0]
+                              "imageUrl": widget.imageUrl
                             });
                           }
                         },
