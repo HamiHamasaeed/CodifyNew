@@ -30,4 +30,8 @@ class FavoriteNotifier extends ChangeNotifier {
     _favorites = favData.toList();
     _ids = _favorites.map((item) => item['id']).toList();
   }
+
+  Future<void> createFav(Map<String, dynamic> addFav) async {
+    await _favBox.add(addFav);
+  }
 }

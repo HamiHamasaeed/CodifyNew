@@ -25,7 +25,7 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   final PageController pageController = PageController();
   final _cartBox = Hive.box('cart_box');
-  final _favBox = Hive.box('fav_box');
+  // final _favBox = Hive.box('fav_box');
 
   late Future<Sensors> _product;
 
@@ -43,10 +43,6 @@ class _ProductPageState extends State<ProductPage> {
     await _cartBox.add(newCart);
   }
 
-  Future<void> _createFav(Map<String, dynamic> addFav) async {
-    await _favBox.add(addFav);
-  }
-
   @override
   void initState() {
     super.initState();
@@ -57,7 +53,7 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     var favoitresNotifier =
         Provider.of<FavoriteNotifier>(context, listen: true);
-    favoitresNotifier.getFavorites;
+    favoitresNotifier.getFavorites();
     return Scaffold(
         backgroundColor: const Color(0xeef2f2f2),
         body: FutureBuilder<Sensors>(
@@ -153,7 +149,8 @@ class _ProductPageState extends State<ProductPage> {
                                                               builder: (context) =>
                                                                   const FavoritePage()));
                                                     } else {
-                                                      _createFav({
+                                                      favoitresNotifier
+                                                          .createFav({
                                                         "id": product.id,
                                                         "name": product.name,
                                                         "category":
