@@ -19,9 +19,19 @@ class _CartPageState extends State<CartPage> {
       body: cartProvider.cart.isEmpty
           ? SafeArea(
               child: Center(
-                  child: Image.asset(
-              'assets/images/empty.png',
-              fit: BoxFit.fill,
+                  child: Column(
+              children: [
+                ReusableText(
+                    text: "Cart is Empty",
+                    style: appstyle(35, Colors.black, FontWeight.bold)),
+                SizedBox(
+                  height: 150.h,
+                ),
+                Image.asset(
+                  'assets/images/empty.png',
+                  fit: BoxFit.fill,
+                ),
+              ],
             )))
           : Padding(
               padding: EdgeInsets.all(12.h),

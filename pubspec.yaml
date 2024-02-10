@@ -44,6 +44,13 @@ dependencies:
   hive_flutter: ^1.1.0
   flutter_slidable: ^3.0.1
   flutter_screenutil: ^5.9.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  ios: true
+  andriod: true
+  image_path: "assets/images/logo.png"
+  adaptive_icon_foreground: "assets/images/logoSecond.png"
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +83,7 @@ flutter:
     - assets/json/others.json
     - assets/images/codifyLogo.png
     - assets/images/empty.png
+    - assets/images/emptyfavorite.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
