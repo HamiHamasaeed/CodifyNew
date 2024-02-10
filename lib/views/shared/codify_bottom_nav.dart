@@ -12,10 +12,10 @@ class CodifyBottomNav extends StatelessWidget {
         builder: (context, mainScreenNotifier, child) {
       return SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: EdgeInsets.all(8.h),
           child: Container(
-            padding: const EdgeInsets.all(12),
-            margin: const EdgeInsets.symmetric(horizontal: 10),
+            padding: EdgeInsets.all(12.h),
+            margin: EdgeInsets.symmetric(horizontal: 10.w),
             decoration: const BoxDecoration(
               color: Colors.black,
               borderRadius: BorderRadius.all(Radius.circular(16)),

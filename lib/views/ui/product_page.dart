@@ -97,11 +97,8 @@ class _ProductPageState extends State<ProductPage> {
                                             ),
                                           ),
                                           Positioned(
-                                            top: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                0.105,
-                                            right: 15,
+                                            top: 85.h,
+                                            right: 15.w,
                                             child: Consumer<FavoriteNotifier>(
                                               builder: (BuildContext context,
                                                   favoriteNotifier,
@@ -140,10 +137,7 @@ class _ProductPageState extends State<ProductPage> {
                                             ),
                                           ),
                                           Positioned(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                0.3,
+                                            height: 245.h,
                                             bottom: 0,
                                             right: 0,
                                             left: 0,
@@ -173,39 +167,37 @@ class _ProductPageState extends State<ProductPage> {
                                   ),
                                 ),
                                 Positioned(
-                                  bottom: 30,
+                                  bottom: 30.h,
                                   child: ClipRRect(
                                     borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(30),
                                         topRight: Radius.circular(30)),
                                     child: Container(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.645,
-                                      width: MediaQuery.of(context).size.width,
+                                      height: 525.h,
+                                      width: 375.w,
                                       color: const Color(0xeef2f2f2),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(12),
+                                        padding: EdgeInsets.all(12.h),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              product.name,
+                                            ReusableText(
+                                              text: product.name,
                                               style: appstyle(35, Colors.black,
                                                   FontWeight.bold),
                                             ),
                                             Row(
                                               children: [
-                                                Text(
-                                                  product.category,
+                                                ReusableText(
+                                                  text: product.category,
                                                   style: appstyle(
                                                       20,
                                                       Colors.blueGrey,
                                                       FontWeight.w500),
                                                 ),
-                                                const SizedBox(
-                                                  width: 20,
+                                                SizedBox(
+                                                  width: 20.w,
                                                 ),
                                                 RatingBar.builder(
                                                   initialRating: 4,
@@ -217,21 +209,21 @@ class _ProductPageState extends State<ProductPage> {
                                                   itemPadding: const EdgeInsets
                                                       .symmetric(horizontal: 1),
                                                   itemBuilder: (context, _) =>
-                                                      const Icon(Icons.star,
-                                                          size: 18,
+                                                      Icon(Icons.star,
+                                                          size: 18.h,
                                                           color: Colors.black),
                                                   onRatingUpdate: (rating) {},
                                                 ),
                                               ],
                                             ),
-                                            const SizedBox(height: 20),
+                                            SizedBox(height: 20.h),
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text(
-                                                  "\$${product.price}",
+                                                ReusableText(
+                                                  text: "\$${product.price}",
                                                   style: appstyle(
                                                       26,
                                                       Colors.black,
@@ -239,20 +231,20 @@ class _ProductPageState extends State<ProductPage> {
                                                 ),
                                                 Row(
                                                   children: [
-                                                    Text(
-                                                      "Colors",
+                                                    ReusableText(
+                                                      text: "Colors",
                                                       style: appstyle(
                                                           18,
                                                           Colors.black,
                                                           FontWeight.w500),
                                                     ),
-                                                    const SizedBox(width: 5),
+                                                    SizedBox(width: 5.h),
                                                     const CircleAvatar(
                                                       radius: 7,
                                                       backgroundColor:
                                                           Colors.blue,
                                                     ),
-                                                    const SizedBox(width: 5),
+                                                    SizedBox(width: 5.h),
                                                     const CircleAvatar(
                                                       radius: 7,
                                                       backgroundColor:
@@ -262,21 +254,21 @@ class _ProductPageState extends State<ProductPage> {
                                                 ),
                                               ],
                                             ),
-                                            const SizedBox(height: 20),
+                                            SizedBox(height: 20.h),
                                             Column(
                                               children: [
                                                 Row(
                                                   children: [
-                                                    Text(
-                                                      "Select Sizes",
+                                                    ReusableText(
+                                                      text: "Select Sizes",
                                                       style: appstyle(
                                                           20,
                                                           Colors.black,
                                                           FontWeight.w600),
                                                     ),
-                                                    const SizedBox(width: 20),
-                                                    Text(
-                                                      "View size guide",
+                                                    SizedBox(width: 20.w),
+                                                    ReusableText(
+                                                      text: "View size guide",
                                                       style: appstyle(
                                                           20,
                                                           Colors.grey,
@@ -284,9 +276,9 @@ class _ProductPageState extends State<ProductPage> {
                                                     ),
                                                   ],
                                                 ),
-                                                const SizedBox(height: 10),
+                                                SizedBox(height: 10.h),
                                                 SizedBox(
-                                                  height: 40,
+                                                  height: 40.h,
                                                   child: ListView.builder(
                                                       itemCount: 3,
                                                       scrollDirection:
@@ -299,11 +291,10 @@ class _ProductPageState extends State<ProductPage> {
                                                                     .arduinoSize[
                                                                 index];
                                                         return Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .symmetric(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
                                                                   horizontal:
-                                                                      8.0),
+                                                                      8.0.h),
                                                           child: ChoiceChip(
                                                             showCheckmark:
                                                                 false,
@@ -313,10 +304,10 @@ class _ProductPageState extends State<ProductPage> {
                                                                   BorderRadius
                                                                       .circular(
                                                                           16),
-                                                              side: const BorderSide(
+                                                              side: BorderSide(
                                                                   color: Colors
                                                                       .black,
-                                                                  width: 1,
+                                                                  width: 1.w,
                                                                   style:
                                                                       BorderStyle
                                                                           .solid),
@@ -362,18 +353,15 @@ class _ProductPageState extends State<ProductPage> {
                                                 )
                                               ],
                                             ),
-                                            const SizedBox(height: 10),
+                                            SizedBox(height: 10.h),
                                             const Divider(
                                               indent: 10,
                                               endIndent: 10,
                                               color: Colors.black,
                                             ),
-                                            const SizedBox(height: 10),
+                                            SizedBox(height: 10.h),
                                             SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.8,
+                                              width: 300.w,
                                               child: Text(
                                                 product.title,
                                                 style: appstyle(
@@ -382,7 +370,7 @@ class _ProductPageState extends State<ProductPage> {
                                                     FontWeight.w700),
                                               ),
                                             ),
-                                            const SizedBox(height: 10),
+                                            SizedBox(height: 10.w),
                                             Text(
                                               product.description,
                                               maxLines: 5,
@@ -393,12 +381,12 @@ class _ProductPageState extends State<ProductPage> {
                                                       255, 100, 100, 100),
                                                   FontWeight.normal),
                                             ),
-                                            const SizedBox(height: 10),
+                                            SizedBox(height: 10.h),
                                             Align(
                                               alignment: Alignment.bottomCenter,
                                               child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 12),
+                                                padding:
+                                                    EdgeInsets.only(top: 2.h),
                                                 child: AddToCartBtn(
                                                   label: "Add To Cart",
                                                   onTap: () async {

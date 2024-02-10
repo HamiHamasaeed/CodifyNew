@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BottomNav extends StatelessWidget {
   const BottomNav({
@@ -14,8 +15,8 @@ class BottomNav extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
-        height: 36,
-        width: 36,
+        height: 36.h,
+        width: 36.w,
         child: Icon(
           icon,
           color: Colors.white,

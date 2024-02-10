@@ -1,5 +1,6 @@
 import 'package:codifyecommerce/views/shared/app_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryBtn extends StatelessWidget {
   const CategoryBtn(
@@ -17,8 +18,8 @@ class CategoryBtn extends StatelessWidget {
     return MaterialButton(
       onPressed: onPress,
       child: Container(
-        height: 45,
-        width: MediaQuery.of(context).size.width * 0.255,
+        height: 45.h,
+        width: 95.5.w,
         decoration: BoxDecoration(
           border: Border.all(
             width: 1,

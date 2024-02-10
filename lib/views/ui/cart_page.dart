@@ -24,13 +24,13 @@ class _CartPageState extends State<CartPage> {
               fit: BoxFit.fill,
             )))
           : Padding(
-              padding: const EdgeInsets.all(12),
+              padding: EdgeInsets.all(12.h),
               child: Stack(
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 40),
+                      SizedBox(height: 40.h),
                       GestureDetector(
                           onTap: () {
                             // Navigator.pop(context);
@@ -39,20 +39,20 @@ class _CartPageState extends State<CartPage> {
                             Ionicons.close,
                             color: Colors.black,
                           )),
-                      Text(
-                        "My Cart",
+                      ReusableText(
+                        text: "My Cart",
                         style: appstyle(36, Colors.black, FontWeight.bold),
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20.h),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.65,
+                        height: 527.h,
                         child: ListView.builder(
                             padding: EdgeInsets.zero,
                             itemCount: cartProvider.cart.length,
                             itemBuilder: (context, index) {
                               final data = cartProvider.cart[index];
                               return Padding(
-                                padding: const EdgeInsets.all(8),
+                                padding: EdgeInsets.all(8.h),
                                 child: ClipRRect(
                                   borderRadius: const BorderRadius.all(
                                       Radius.circular(12)),
@@ -79,10 +79,8 @@ class _CartPageState extends State<CartPage> {
                                       ],
                                     ),
                                     child: Container(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.11,
-                                      width: MediaQuery.of(context).size.width,
+                                      height: 95.h,
+                                      width: 375.w,
                                       decoration: BoxDecoration(
                                           color: Colors.grey.shade100,
                                           boxShadow: [
@@ -99,59 +97,57 @@ class _CartPageState extends State<CartPage> {
                                           Row(
                                             children: [
                                               Padding(
-                                                padding:
-                                                    const EdgeInsets.all(12),
+                                                padding: EdgeInsets.all(12.h),
                                                 child: CachedNetworkImage(
                                                   imageUrl: data['imageUrl'][0],
-                                                  width: 70,
-                                                  height: 70,
+                                                  width: 70.w,
+                                                  height: 70.h,
                                                   fit: BoxFit.fill,
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 12, left: 20),
+                                                padding: EdgeInsets.only(
+                                                    top: 12.h, left: 20.w),
                                                 child: Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.start,
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Text(
-                                                      data['name'],
+                                                    ReusableText(
+                                                      text: data['name'],
                                                       style: appstyle(
                                                           16,
                                                           Colors.black,
                                                           FontWeight.bold),
                                                     ),
-                                                    const SizedBox(height: 5),
-                                                    Text(
-                                                      data['category'],
+                                                    SizedBox(height: 5.h),
+                                                    ReusableText(
+                                                      text: data['category'],
                                                       style: appstyle(
                                                           14,
                                                           Colors.grey,
                                                           FontWeight.w600),
                                                     ),
-                                                    const SizedBox(height: 5),
+                                                    SizedBox(height: 5.h),
                                                     Row(
                                                       children: [
-                                                        Text(
-                                                          data['price'],
+                                                        ReusableText(
+                                                          text: data['price'],
                                                           style: appstyle(
                                                               20,
                                                               Colors.black,
                                                               FontWeight.w600),
                                                         ),
-                                                        const SizedBox(
-                                                            width: 40),
-                                                        Text("Size",
+                                                        SizedBox(width: 40.w),
+                                                        ReusableText(
+                                                            text: "Size",
                                                             style: appstyle(
                                                                 18,
                                                                 Colors.grey,
                                                                 FontWeight
                                                                     .w600)),
-                                                        const SizedBox(
-                                                            width: 15),
+                                                        SizedBox(width: 15.w),
                                                         Text(
                                                           "${data['sizes']}",
                                                           style: appstyle(
@@ -169,8 +165,7 @@ class _CartPageState extends State<CartPage> {
                                           Row(
                                             children: [
                                               Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8),
+                                                padding: EdgeInsets.all(8.h),
                                                 child: Container(
                                                   decoration:
                                                       const BoxDecoration(
@@ -190,14 +185,15 @@ class _CartPageState extends State<CartPage> {
                                                           cartProvider
                                                               .increament();
                                                         },
-                                                        child: const Icon(
+                                                        child: Icon(
                                                           Ionicons.add_circle,
-                                                          size: 25,
+                                                          size: 25.h,
                                                           color: Colors.black,
                                                         ),
                                                       ),
-                                                      Text(
-                                                        cartProvider.counter
+                                                      ReusableText(
+                                                        text: cartProvider
+                                                            .counter
                                                             .toString(),
                                                         style: appstyle(
                                                             16,
@@ -209,10 +205,10 @@ class _CartPageState extends State<CartPage> {
                                                           cartProvider
                                                               .decreament();
                                                         },
-                                                        child: const Icon(
+                                                        child: Icon(
                                                           Ionicons
                                                               .remove_circle,
-                                                          size: 25,
+                                                          size: 25.h,
                                                           color:
                                                               Colors.blueGrey,
                                                         ),
@@ -249,8 +245,8 @@ class _CartPageState extends State<CartPage> {
                             actions: [
                               TextButton(
                                   onPressed: () => Navigator.pop(context),
-                                  child: Text(
-                                    "Cancel",
+                                  child: ReusableText(
+                                    text: "Cancel",
                                     style: appstyle(
                                         14, Colors.red, FontWeight.bold),
                                   )),

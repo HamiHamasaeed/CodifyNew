@@ -98,10 +98,7 @@ class _ProductByCartState extends State<ProductByCart>
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.175,
-                  left: 16,
-                  right: 12),
+              padding: EdgeInsets.only(top: 142.h, left: 16.w, right: 12.h),
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(16)),
                 child: TabBarView(
@@ -128,8 +125,8 @@ class _ProductByCartState extends State<ProductByCart>
         barrierColor: Colors.white54,
         context: context,
         builder: (context) => Container(
-              height: MediaQuery.of(context).size.height * 0.84,
-              width: MediaQuery.of(context).size.width,
+              height: 682.h,
+              width: 375.w,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -138,19 +135,19 @@ class _ProductByCartState extends State<ProductByCart>
               ),
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: 10.h,
                   ),
                   Container(
-                    height: 5,
-                    width: 14,
+                    height: 5.h,
+                    width: 14.w,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       color: Colors.black38,
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.7,
+                    height: 568.h,
                     child: Column(
                       children: [
                         const CustomSpacer(),
@@ -163,8 +160,8 @@ class _ProductByCartState extends State<ProductByCart>
                           "Type",
                           style: appstyle(20, Colors.black, FontWeight.bold),
                         ),
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: 20.h,
                         ),
                         const Row(
                           children: [
@@ -208,7 +205,7 @@ class _ProductByCartState extends State<ProductByCart>
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
                               return Padding(
-                                padding: const EdgeInsets.all(8),
+                                padding: EdgeInsets.all(8.h),
                                 child: Container(
                                   decoration: BoxDecoration(
                                       color: Colors.grey.shade200,

@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         fit: BoxFit.fill)),
                 child: Container(
                   padding: EdgeInsets.only(left: 8.w, bottom: 15.h),
-                  width: MediaQuery.of(context).size.width,
+                  width: 375.w,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
