@@ -1,4 +1,6 @@
+// import 'package:codifyecommerce/views/ui/product_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../models/sensors_model.dart';
@@ -26,21 +28,30 @@ class AvailableProducts extends StatelessWidget {
           return StaggeredGridView.countBuilder(
             padding: EdgeInsets.zero,
             crossAxisCount: 2,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 16,
+            crossAxisSpacing: 20.w,
+            mainAxisSpacing: 16.h,
             itemCount: arduino!.length,
             scrollDirection: Axis.vertical,
-            staggeredTileBuilder: (index) => StaggeredTile.extent(
+            staggeredTileBuilder: (index) => StaggeredTile.extent( 
                 (index % 2 == 0) ? 1 : 1,
-                (index % 4 == 1 || index % 4 == 3)
-                    ? MediaQuery.of(context).size.height * 0.35
-                    : MediaQuery.of(context).size.height * 0.3),
+                (index % 4 == 1 || index % 4 == 3) ? 265.h : 245.h),
             itemBuilder: (context, index) {
               final myArduino = snapshot.data![index];
-              return StaggerTile(
-                  imageUrl: myArduino.imageUrl[0],
-                  name: myArduino.name,
-                  price: "\$${myArduino.price}");
+              return GestureDetector(
+                onTap: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => ProductPage(
+                  //         id: myArduino.id, category: myArduino.category),
+                  //   ),
+                  // );
+                },
+                child: StaggerTile(
+                    imageUrl: myArduino.imageUrl[0],
+                    name: myArduino.name,
+                    price: "\$${myArduino.price}"),
+              );
             },
           );
         }

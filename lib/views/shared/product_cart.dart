@@ -1,7 +1,9 @@
 import 'package:codifyecommerce/controllers/favoirte_provider.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
+import 'package:codifyecommerce/views/shared/reusable_text.dart';
 import 'package:codifyecommerce/views/ui/favorite_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 
@@ -33,12 +35,12 @@ class _ProductCartState extends State<ProductCart> {
 
     bool selected = true;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(8, 0, 20, 0),
+      padding: EdgeInsets.fromLTRB(8.w, 0, 20.w, 0),
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(16)),
         child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width * 0.6,
+          height: 325.h,
+          width: 225.w,
           decoration: const BoxDecoration(boxShadow: [
             BoxShadow(
                 color: Colors.white,
@@ -52,17 +54,16 @@ class _ProductCartState extends State<ProductCart> {
               Stack(
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.23,
+                    height: 186.h,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: NetworkImage(widget.imageUrl))),
                   ),
                   Positioned(
-                      right: 10,
-                      top: 10,
+                      right: 10.w,
+                      top: 10.h,
                       child: GestureDetector(
-                          onTap: () {
-                            // print(getFavorites());
+                          onTap: () async {
                             if (favoritesNotifier.ids.contains(widget.id)) {
                               Navigator.push(
                                   context,
@@ -86,17 +87,17 @@ class _ProductCartState extends State<ProductCart> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 8),
+                padding: EdgeInsets.only(left: 8.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      widget.name,
+                    ReusableText(
+                      text: widget.name,
                       style: appstyleWithHeight(
                           36, Colors.black, FontWeight.bold, 1.1),
                     ),
-                    Text(
-                      widget.category,
+                    ReusableText(
+                      text: widget.category,
                       style: appstyleWithHeight(
                           18, Colors.blueGrey, FontWeight.bold, 1.5),
                     ),
@@ -104,22 +105,22 @@ class _ProductCartState extends State<ProductCart> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 8, right: 8),
+                padding: EdgeInsets.only(left: 8.w, right: 8.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(widget.price,
-                        style: appstyle(30, Colors.black, FontWeight.w600)),
+                    ReusableText(
+                        text: widget.price,
+                        style: appstyle(25, Colors.black, FontWeight.w600)),
                     Row(
                       children: [
-                        Text("Colors",
-                            style: appstyle(18, Colors.grey, FontWeight.w500)),
-                        const SizedBox(
-                          width: 5,
-                        ),
+                        ReusableText(
+                            text: "Colors",
+                            style: appstyle(16, Colors.grey, FontWeight.w500)),
                         ChoiceChip(
-                          label: const Text(""),
+                          label: Container(),
                           selected: selected,
+                          shape: const CircleBorder(),
                           visualDensity: VisualDensity.compact,
                           selectedColor: Colors.black,
                         )

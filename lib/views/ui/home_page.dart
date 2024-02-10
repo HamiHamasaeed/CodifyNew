@@ -2,6 +2,7 @@ import 'package:codifyecommerce/controllers/product_provider.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
 import 'package:codifyecommerce/views/shared/custom_spacer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../shared/home_widget.dart';
 
@@ -26,18 +27,19 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return Scaffold(
         backgroundColor: const Color(0xffe2e2e2),
         body: SizedBox(
-          height: MediaQuery.of(context).size.height,
+          height: 812.h,
+          width: 375.w,
           child: Stack(
             children: [
               Container(
-                padding: const EdgeInsets.fromLTRB(16, 45, 0, 0),
-                height: MediaQuery.of(context).size.height * 0.4,
+                padding: EdgeInsets.fromLTRB(16.w, 45.h, 0, 0),
+                height: 325.h,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage('assets/images/top_page.png'),
                         fit: BoxFit.fill)),
                 child: Container(
-                  padding: const EdgeInsets.only(left: 8, bottom: 15),
+                  padding: EdgeInsets.only(left: 8.w, bottom: 15.h),
                   width: MediaQuery.of(context).size.width,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +47,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       const CustomSpacer(),
                       Image.asset(
                         ("assets/images/codifyLogo.png"),
-                        width: 180,
+                        width: 180.w,
                       ),
                       const CustomSpacer(),
                       // Text("Shop",
@@ -72,10 +74,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.264),
+                padding: EdgeInsets.only(top: 203.h),
                 child: Container(
-                  padding: const EdgeInsets.only(left: 12),
+                  padding: EdgeInsets.only(left: 12.w),
                   child: TabBarView(controller: _tabController, children: [
                     HomeWidget(
                       arduino: productNotifier.arduino,

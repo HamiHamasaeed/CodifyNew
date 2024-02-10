@@ -1,6 +1,8 @@
 import 'package:codifyecommerce/views/shared/category_btn.dart';
 import 'package:codifyecommerce/views/shared/custom_spacer.dart';
+import 'package:codifyecommerce/views/shared/reusable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/product_provider.dart';
@@ -55,8 +57,8 @@ class _ProductByCartState extends State<ProductByCart>
         child: Stack(
           children: [
             Container(
-              padding: const EdgeInsets.fromLTRB(16, 45, 0, 0),
-              height: MediaQuery.of(context).size.height * 0.4,
+              padding: EdgeInsets.only(left: 16.w, top: 45.h),
+              height: 325.h,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/images/top_page.png'),
@@ -66,7 +68,7 @@ class _ProductByCartState extends State<ProductByCart>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(6, 12, 16, 18),
+                    padding: EdgeInsets.fromLTRB(6.w, 12.h, 16.w, 18.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -184,8 +186,8 @@ class _ProductByCartState extends State<ProductByCart>
                           ],
                         ),
                         const CustomSpacer(),
-                        Text(
-                          "Price",
+                        ReusableText(
+                          text: "Price",
                           style: appstyle(20, Colors.black, FontWeight.bold),
                         ),
                         const CustomSpacer(),
@@ -204,12 +206,12 @@ class _ProductByCartState extends State<ProductByCart>
                           "Brand",
                           style: appstyle(20, Colors.black, FontWeight.bold),
                         ),
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: 20.h,
                         ),
                         Container(
-                          padding: const EdgeInsets.all(8),
-                          height: 100,
+                          padding: EdgeInsets.all(8.h),
+                          height: 100.h,
                           child: ListView.builder(
                             itemCount: brand.length,
                             scrollDirection: Axis.horizontal,
@@ -224,8 +226,8 @@ class _ProductByCartState extends State<ProductByCart>
                                       )),
                                   child: Image.asset(
                                     brand[index],
-                                    height: 80,
-                                    width: 80,
+                                    height: 80.h,
+                                    width: 80.w,
                                     color: Colors.black,
                                   ),
                                 ),

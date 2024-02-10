@@ -38,7 +38,7 @@ class CartProvider extends ChangeNotifier {
     await _cartBox.clear();
   }
 
-  int _counter = 4;
+  int _counter = 1;
 
   int get counter => _counter;
 
@@ -48,7 +48,7 @@ class CartProvider extends ChangeNotifier {
   }
 
   void decreament() {
-    if (_counter >= 1) {
+    if (_counter > 1) {
       _counter--;
       notifyListeners();
     }

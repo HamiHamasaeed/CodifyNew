@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
+import 'package:codifyecommerce/views/shared/reusable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StaggerTile extends StatefulWidget {
   const StaggerTile(
@@ -25,7 +27,7 @@ class _StaggerTileState extends State<StaggerTile> {
           borderRadius: BorderRadius.all(Radius.circular(16)),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: EdgeInsets.all(8.h),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,19 +37,22 @@ class _StaggerTileState extends State<StaggerTile> {
                 fit: BoxFit.fill,
               ),
               Container(
-                padding: const EdgeInsets.only(top: 12),
-                height: 75,
+                padding: EdgeInsets.only(top: 12.h),
+                height: 75.h,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      widget.name,
+                    ReusableText(
+                      text: widget.name,
                       style: appstyleWithHeight(
                           20, Colors.black, FontWeight.w700, 1),
                     ),
-                    Text(
-                      widget.price,
+                    SizedBox(
+                      height: 5.h,
+                    ),
+                    ReusableText(
+                      text: widget.price,
                       style: appstyleWithHeight(
                           20, Colors.black, FontWeight.w500, 1),
                     ),

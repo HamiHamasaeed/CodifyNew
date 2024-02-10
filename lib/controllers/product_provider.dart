@@ -15,6 +15,7 @@ class ProductNotifier extends ChangeNotifier {
   }
 
   List<dynamic> get arduinoSize => _arduinoSize;
+
   set arduinoSize(List<dynamic> newArduino) {
     _arduinoSize = newArduino;
     notifyListeners();

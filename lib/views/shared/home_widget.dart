@@ -1,7 +1,9 @@
 import 'package:codifyecommerce/controllers/product_provider.dart';
+import 'package:codifyecommerce/views/shared/reusable_text.dart';
 import 'package:codifyecommerce/views/ui/product_by_cart.dart';
 import 'package:codifyecommerce/views/ui/product_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 import '../../models/sensors_model.dart';
@@ -26,7 +28,7 @@ class HomeWidget extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.405,
+          height: 325.h,
           child: FutureBuilder<List<Sensors>>(
               future: _arduino,
               builder: (context, snapshot) {
@@ -66,12 +68,12 @@ class HomeWidget extends StatelessWidget {
         Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(12, 20, 12, 20),
+              padding: EdgeInsets.fromLTRB(12.w, 20.h, 12.w, 20.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Latest Products",
+                  ReusableText(
+                    text: "Latest Products",
                     style: appstyle(24, Colors.black, FontWeight.bold),
                   ),
                   GestureDetector(
@@ -86,13 +88,13 @@ class HomeWidget extends StatelessWidget {
                     },
                     child: Row(
                       children: [
-                        Text(
-                          "Show All",
-                          style: appstyle(22, Colors.black, FontWeight.normal),
+                        ReusableText(
+                          text: "Show All",
+                          style: appstyle(18, Colors.black, FontWeight.normal),
                         ),
-                        const Icon(
+                        Icon(
                           Ionicons.caret_forward,
-                          size: 20,
+                          size: 20.h,
                         )
                       ],
                     ),
@@ -103,7 +105,7 @@ class HomeWidget extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.13,
+          height: 99.h,
           child: FutureBuilder<List<Sensors>>(
               future: _arduino,
               builder: (context, snapshot) {
@@ -119,7 +121,7 @@ class HomeWidget extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final myArduino = snapshot.data![index];
                         return Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0.h),
                           child: NewArduino(imageUrl: myArduino.imageUrl[1]),
                         );
                       });

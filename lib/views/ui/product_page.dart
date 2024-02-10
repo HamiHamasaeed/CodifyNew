@@ -4,6 +4,7 @@ import 'package:codifyecommerce/views/shared/app_style.dart';
 import 'package:codifyecommerce/views/ui/favorite_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,6 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   final PageController pageController = PageController();
   final _cartBox = Hive.box('cart_box');
-  // final _favBox = Hive.box('fav_box');
 
   Future<void> _createCart(Map<String, dynamic> newCart) async {
     await _cartBox.add(newCart);
@@ -57,7 +57,7 @@ class _ProductPageState extends State<ProductPage> {
                           automaticallyImplyLeading: false,
                           leadingWidth: 0,
                           title: Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
+                            padding: EdgeInsets.only(bottom: 10.h),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -85,9 +85,8 @@ class _ProductPageState extends State<ProductPage> {
                             background: Stack(
                               children: [
                                 SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.5,
-                                  width: MediaQuery.of(context).size.width,
+                                  height: 401.h,
+                                  width: 375.w,
                                   child: PageView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemCount: product!.imageUrl.length,
@@ -99,13 +98,8 @@ class _ProductPageState extends State<ProductPage> {
                                       return Stack(
                                         children: [
                                           Container(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                0.39,
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
+                                            height: 316.h,
+                                            width: 375.w,
                                             color: const Color.fromARGB(
                                                 255, 240, 233, 233),
                                             child: CachedNetworkImage(
