@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
+import 'package:codifyecommerce/views/ui/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:ionicons/ionicons.dart';
@@ -58,17 +59,25 @@ class _CartPageState extends State<CartPage> {
                                 const BorderRadius.all(Radius.circular(12)),
                             child: Slidable(
                               key: const ValueKey(0),
-                              endActionPane: const ActionPane(
-                                  motion: ScrollMotion(),
-                                  children: [
-                                    SlidableAction(
-                                      onPressed: null,
-                                      backgroundColor: Colors.black,
-                                      foregroundColor: Colors.white,
-                                      icon: Icons.delete,
-                                      label: "Delete",
-                                    ),
-                                  ]),
+                              endActionPane: ActionPane(
+                                motion: const ScrollMotion(),
+                                children: [
+                                  SlidableAction(
+                                    onPressed: (context) {
+                                      cartProvider.deleteCart(data['key']);
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MainScreen()));
+                                    },
+                                    backgroundColor: Colors.black,
+                                    foregroundColor: Colors.white,
+                                    icon: Icons.delete,
+                                    label: "Delete",
+                                  ),
+                                ],
+                              ),
                               child: Container(
                                 height:
                                     MediaQuery.of(context).size.height * 0.11,
