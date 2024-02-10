@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:codifyecommerce/controllers/product_provider.dart';
-import 'package:codifyecommerce/services/helper.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
 import 'package:codifyecommerce/views/ui/favorite_page.dart';
 import 'package:flutter/material.dart';
@@ -27,37 +26,22 @@ class _ProductPageState extends State<ProductPage> {
   final _cartBox = Hive.box('cart_box');
   // final _favBox = Hive.box('fav_box');
 
-  late Future<Sensors> _product;
-
-  void getArduino() {
-    if (widget.category == "Arduino") {
-      _product = Helper().getArduinoByID(widget.id);
-    } else if (widget.category == "Sensors") {
-      _product = Helper().getSensorByID(widget.id);
-    } else {
-      _product = Helper().getOthersByID(widget.id);
-    }
-  }
-
   Future<void> _createCart(Map<String, dynamic> newCart) async {
     await _cartBox.add(newCart);
   }
 
   @override
-  void initState() {
-    super.initState();
-    getArduino();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    var productNotifier = Provider.of<ProductNotifier>(context);
+    productNotifier.getArduino(widget.category, widget.id);
+
     var favoitresNotifier =
         Provider.of<FavoriteNotifier>(context, listen: true);
     favoitresNotifier.getFavorites();
     return Scaffold(
         backgroundColor: const Color(0xeef2f2f2),
         body: FutureBuilder<Sensors>(
-            future: _product,
+            future: productNotifier.product,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const CircularProgressIndicator();

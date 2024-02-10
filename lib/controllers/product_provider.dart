@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../models/sensors_model.dart';
+import '../services/helper.dart';
+
 class ProductNotifier extends ChangeNotifier {
   int _activePage = 0;
   List<dynamic> _arduinoSize = [];
@@ -8,7 +11,7 @@ class ProductNotifier extends ChangeNotifier {
 
   set activePage(int newIndex) {
     _activePage = newIndex;
-    notifyListeners(); 
+    notifyListeners();
   }
 
   List<dynamic> get arduinoSize => _arduinoSize;
@@ -31,5 +34,32 @@ class ProductNotifier extends ChangeNotifier {
   set sizes(List<String> newSizes) {
     _sizes = newSizes;
     notifyListeners();
+  }
+
+  late Future<List<Sensors>> sensor;
+  late Future<List<Sensors>> arduino;
+  late Future<List<Sensors>> other;
+  late Future<Sensors> product;
+
+  void getSensorFromHelper() {
+    sensor = Helper().getSensor();
+  }
+
+  void getArduinoFromHelper() {
+    arduino = Helper().getArduino();
+  }
+
+  void getOthersFromHelper() {
+    other = Helper().getOthers();
+  }
+
+  void getArduino(String category, String id) {
+    if (category == "Arduino") {
+      product = Helper().getArduinoByID(id);
+    } else if (category == "Sensors") {
+      product = Helper().getSensorByID(id);
+    } else {
+      product = Helper().getOthersByID(id);
+    }
   }
 }

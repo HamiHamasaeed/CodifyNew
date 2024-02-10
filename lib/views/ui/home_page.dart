@@ -1,8 +1,8 @@
-import 'package:codifyecommerce/models/sensors_model.dart';
-import 'package:codifyecommerce/services/helper.dart';
+import 'package:codifyecommerce/controllers/product_provider.dart';
 import 'package:codifyecommerce/views/shared/app_style.dart';
 import 'package:codifyecommerce/views/shared/custom_spacer.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../shared/home_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,32 +16,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late final TabController _tabController =
       TabController(length: 3, vsync: this);
 
-  late Future<List<Sensors>> _sensor;
-  late Future<List<Sensors>> _arduino;
-  late Future<List<Sensors>> _other;
-
-  void getSensorFromHelper() {
-    _sensor = Helper().getSensor();
-  }
-
-  void getArduinoFromHelper() {
-    _arduino = Helper().getArduino();
-  }
-
-  void getOthersFromHelper() {
-    _other = Helper().getOthers();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getSensorFromHelper();
-    getArduinoFromHelper();
-    getOthersFromHelper();
-  }
-
   @override
   Widget build(BuildContext context) {
+    var productNotifier = Provider.of<ProductNotifier>(context);
+    productNotifier.getArduinoFromHelper();
+    productNotifier.getSensorFromHelper();
+    productNotifier.getOthersFromHelper();
+
     return Scaffold(
         backgroundColor: const Color(0xffe2e2e2),
         body: SizedBox(
@@ -97,15 +78,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   padding: const EdgeInsets.only(left: 12),
                   child: TabBarView(controller: _tabController, children: [
                     HomeWidget(
-                      arduino: _arduino,
+                      arduino: productNotifier.arduino,
                       tabIndex: 0,
                     ),
                     HomeWidget(
-                      arduino: _sensor,
+                      arduino: productNotifier.sensor,
                       tabIndex: 1,
                     ),
                     HomeWidget(
-                      arduino: _other,
+                      arduino: productNotifier.other,
                       tabIndex: 2,
                     ),
                   ]),

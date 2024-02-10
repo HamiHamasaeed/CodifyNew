@@ -2,8 +2,8 @@ import 'package:codifyecommerce/views/shared/category_btn.dart';
 import 'package:codifyecommerce/views/shared/custom_spacer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../models/sensors_model.dart';
-import '../../services/helper.dart';
+import 'package:provider/provider.dart';
+import '../../controllers/product_provider.dart';
 import '../shared/app_style.dart';
 import '../shared/available_products.dart';
 
@@ -21,22 +21,6 @@ class _ProductByCartState extends State<ProductByCart>
   late final TabController _tabController =
       TabController(length: 3, vsync: this);
 
-  late Future<List<Sensors>> _sensor;
-  late Future<List<Sensors>> _arduino;
-  late Future<List<Sensors>> _other;
-
-  void getSensorFromHelper() {
-    _sensor = Helper().getSensor();
-  }
-
-  void getArduinoFromHelper() {
-    _arduino = Helper().getArduino();
-  }
-
-  void getOthersFromHelper() {
-    _other = Helper().getOthers();
-  }
-
   List<String> brand = [
     "assets/images/arduino.png",
     "assets/images/arduino.png",
@@ -49,13 +33,21 @@ class _ProductByCartState extends State<ProductByCart>
   @override
   void initState() {
     super.initState();
-    getSensorFromHelper();
-    getArduinoFromHelper();
-    getOthersFromHelper();
+    _tabController.animateTo(widget.tabIndex, curve: Curves.easeIn);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    var productNotifier = Provider.of<ProductNotifier>(context);
+    productNotifier.getArduinoFromHelper();
+    productNotifier.getSensorFromHelper();
+    productNotifier.getOthersFromHelper();
     return Scaffold(
       backgroundColor: const Color(0xffe2e2e2),
       body: SizedBox(
@@ -94,7 +86,7 @@ class _ProductByCartState extends State<ProductByCart>
                       ],
                     ),
                   ),
-                  TabBar(                     
+                  TabBar(
                       dividerColor: Colors.transparent,
                       padding: EdgeInsets.zero,
                       indicatorSize: TabBarIndicatorSize.label,
@@ -122,9 +114,9 @@ class _ProductByCartState extends State<ProductByCart>
                 child: TabBarView(
                   controller: _tabController,
                   children: [
-                    AvailableProducts(arduino: _arduino),
-                    AvailableProducts(arduino: _sensor),
-                    AvailableProducts(arduino: _other),
+                    AvailableProducts(arduino: productNotifier.arduino),
+                    AvailableProducts(arduino: productNotifier.sensor),
+                    AvailableProducts(arduino: productNotifier.other),
                   ],
                 ),
               ),
