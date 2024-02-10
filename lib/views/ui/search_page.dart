@@ -1,5 +1,5 @@
-import 'package:codifyecommerce/views/shared/app_style.dart';
 import 'package:flutter/material.dart';
+import '../shared/export.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});

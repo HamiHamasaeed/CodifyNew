@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'app_style.dart';
 
 class AddToCartBtn extends StatelessWidget {

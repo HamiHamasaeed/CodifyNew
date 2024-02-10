@@ -1,10 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:codifyecommerce/controllers/favoirte_provider.dart';
-import 'package:codifyecommerce/views/shared/app_style.dart';
-import 'package:codifyecommerce/views/ui/main_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
-import 'package:provider/provider.dart';
+import 'package:codifyecommerce/views/shared/export.dart';
+import '../shared/export_packages.dart';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({super.key});

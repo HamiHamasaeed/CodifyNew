@@ -1,5 +1,5 @@
-import 'package:codifyecommerce/views/shared/app_style.dart';
 import 'package:flutter/material.dart';
+import '../shared/export.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});

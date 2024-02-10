@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../models/sensors_model.dart';
+import 'package:codifyecommerce/views/shared/export.dart';
 import '../services/helper.dart';
 
 class ProductNotifier extends ChangeNotifier {

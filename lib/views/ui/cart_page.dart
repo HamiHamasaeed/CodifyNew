@@ -1,12 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:codifyecommerce/views/shared/app_style.dart';
-import 'package:codifyecommerce/views/ui/main_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:ionicons/ionicons.dart';
-import 'package:provider/provider.dart';
-import '../../controllers/cart_provider.dart';
-import '../shared/check_out_btn.dart';
+import '../shared/export.dart';
+import '../shared/export_packages.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});

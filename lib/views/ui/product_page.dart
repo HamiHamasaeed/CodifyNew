@@ -1,16 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:codifyecommerce/controllers/product_provider.dart';
-import 'package:codifyecommerce/views/shared/app_style.dart';
-import 'package:codifyecommerce/views/ui/favorite_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:ionicons/ionicons.dart';
-import 'package:provider/provider.dart';
-import '../../controllers/favoirte_provider.dart';
-import '../../models/sensors_model.dart';
-import '../shared/add_to_cart.dart';
+import 'package:codifyecommerce/views/shared/export.dart';
+import 'package:codifyecommerce/views/shared/export_packages.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key, required this.id, required this.category});

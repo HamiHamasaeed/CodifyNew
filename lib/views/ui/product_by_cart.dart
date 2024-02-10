@@ -1,13 +1,4 @@
-import 'package:codifyecommerce/views/shared/category_btn.dart';
-import 'package:codifyecommerce/views/shared/custom_spacer.dart';
-import 'package:codifyecommerce/views/shared/reusable_text.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
-import '../../controllers/product_provider.dart';
-import '../shared/app_style.dart';
-import '../shared/available_products.dart';
+import 'package:codifyecommerce/views/shared/export.dart';
 
 class ProductByCart extends StatefulWidget {
   const ProductByCart({super.key, required this.tabIndex});

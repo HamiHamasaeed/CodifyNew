@@ -1,8 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:codifyecommerce/views/shared/app_style.dart';
-import 'package:codifyecommerce/views/shared/reusable_text.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'export.dart';
+import 'export_packages.dart';
 
 class StaggerTile extends StatefulWidget {
   const StaggerTile(

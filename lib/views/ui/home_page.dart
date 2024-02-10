@@ -1,10 +1,4 @@
-import 'package:codifyecommerce/controllers/product_provider.dart';
-import 'package:codifyecommerce/views/shared/app_style.dart';
-import 'package:codifyecommerce/views/shared/custom_spacer.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
-import '../shared/home_widget.dart';
+import 'package:codifyecommerce/views/shared/export.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

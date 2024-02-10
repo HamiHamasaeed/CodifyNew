@@ -1,12 +1,5 @@
-import 'package:codifyecommerce/controllers/cart_provider.dart';
-import 'package:codifyecommerce/controllers/favoirte_provider.dart';
-import 'package:codifyecommerce/controllers/main_screen_provider.dart';
-import 'package:codifyecommerce/controllers/product_provider.dart';
-import 'package:codifyecommerce/views/ui/main_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:provider/provider.dart';
+import 'package:codifyecommerce/views/shared/export.dart';
+import 'views/shared/export_packages.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

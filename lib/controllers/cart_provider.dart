@@ -1,5 +1,4 @@
-import 'package:flutter/foundation.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:codifyecommerce/views/shared/export_packages.dart';
 
 class CartProvider extends ChangeNotifier {
   final _cartBox = Hive.box("cart_box");

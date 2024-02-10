@@ -1,14 +1,5 @@
 // ignore_for_file: unrelated_type_equality_checks
-
-import 'package:codifyecommerce/controllers/main_screen_provider.dart';
-import 'package:codifyecommerce/views/ui/cart_page.dart';
-import 'package:codifyecommerce/views/ui/favorite_page.dart';
-import 'package:codifyecommerce/views/ui/home_page.dart';
-import 'package:codifyecommerce/views/ui/profile.dart';
-import 'package:codifyecommerce/views/ui/search_page.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../shared/codify_bottom_nav.dart';
+import '../shared/export.dart';
 
 // ignore: must_be_immutable
 class MainScreen extends StatelessWidget {

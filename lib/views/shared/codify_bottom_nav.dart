@@ -1,8 +1,5 @@
-import 'package:codifyecommerce/controllers/main_screen_provider.dart';
-import 'package:codifyecommerce/views/shared/bottom_nav.dart';
-import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
-import 'package:provider/provider.dart';
+import 'export.dart';
+import 'export_packages.dart';
 
 class CodifyBottomNav extends StatelessWidget {
   const CodifyBottomNav({
