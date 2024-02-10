@@ -110,7 +110,7 @@ class _ProductPageState extends State<ProductPage> {
                                                 255, 240, 233, 233),
                                             child: CachedNetworkImage(
                                               imageUrl: product.imageUrl[index],
-                                              fit: BoxFit.contain,
+                                              fit: BoxFit.fill,
                                             ),
                                           ),
                                           Positioned(

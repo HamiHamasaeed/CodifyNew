@@ -74,6 +74,7 @@ flutter:
     - assets/json/arduino.json
     - assets/json/others.json
     - assets/images/codifyLogo.png
+    - assets/images/empty.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

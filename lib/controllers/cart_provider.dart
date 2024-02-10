@@ -34,11 +34,15 @@ class CartProvider extends ChangeNotifier {
     await _cartBox.delete(key);
   }
 
-  int _counter = 0;
+  Future<void> deleteAllCart() async {
+    await _cartBox.clear();
+  }
+
+  int _counter = 4;
 
   int get counter => _counter;
 
-  void increamen() {
+  void increament() {
     _counter++;
     notifyListeners();
   }
