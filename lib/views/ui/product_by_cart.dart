@@ -128,7 +128,7 @@ class _ProductByCartState extends State<ProductByCart>
   }
 
   Future<dynamic> filter() {
-    double _value = 100;
+    double value = 100;
     return showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -195,9 +195,9 @@ class _ProductByCartState extends State<ProductByCart>
                             thumbColor: Colors.black,
                             max: 500,
                             divisions: 50,
-                            label: _value.toString(),
+                            label: value.toString(),
                             secondaryTrackValue: 200,
-                            value: _value,
+                            value: value,
                             onChanged: (double value) {}),
                         const CustomSpacer(),
                         Text(

@@ -372,12 +372,6 @@ class _ProductPageState extends State<ProductPage> {
                                                                     .add(sizes[
                                                                         'size']);
                                                               }
-                                                              print(
-                                                                  productNotifier
-                                                                      .sizes);
-                                                              productNotifier
-                                                                  .toggleCheck(
-                                                                      index);
                                                             },
                                                           ),
                                                         );

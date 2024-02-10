@@ -83,7 +83,6 @@ class HomeWidget extends StatelessWidget {
                               ProductByCart(tabIndex: tabIndex),
                         ),
                       );
-                      print(tabIndex);
                     },
                     child: Row(
                       children: [
