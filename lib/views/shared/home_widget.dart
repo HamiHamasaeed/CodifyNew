@@ -38,11 +38,13 @@ class HomeWidget extends StatelessWidget {
                             productNotifier.arduinoSize = myArduino.sizes;
                             // print(productNotifier.arduinoSize);
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductPage(
-                                        id: myArduino.id,
-                                        category: myArduino.category)));
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProductPage(
+                                    id: myArduino.id,
+                                    category: myArduino.category),
+                              ),
+                            );
                           },
                           child: ProductCart(
                               price: "\$${myArduino.price}",

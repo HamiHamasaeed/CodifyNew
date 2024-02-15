@@ -45,6 +45,7 @@ dependencies:
   flutter_slidable: ^3.0.1
   flutter_screenutil: ^5.9.0
   flutter_launcher_icons: ^0.13.1
+  go_router: ^13.2.0
 
 flutter_icons:
   ios: true
@@ -84,6 +85,8 @@ flutter:
     - assets/images/codifyLogo.png
     - assets/images/empty.png
     - assets/images/emptyfavorite.png
+    - assets/images/offwhite.png
+    - assets/images/coverPage.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

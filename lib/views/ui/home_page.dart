@@ -1,4 +1,5 @@
 import 'package:codifyecommerce/views/shared/export.dart';
+import 'package:codifyecommerce/views/ui/about_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -39,9 +40,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const CustomSpacer(),
-                      Image.asset(
-                        ("assets/images/codifyLogo.png"),
-                        width: 180.w,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const AboutPage()));
+                        },
+                        child: Image.asset(
+                          ("assets/images/codifyLogo.png"),
+                          width: 180.w,
+                        ),
                       ),
                       const CustomSpacer(),
                       // Text("Shop",
