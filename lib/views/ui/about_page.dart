@@ -121,6 +121,12 @@ class AboutPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 5.h),
+                      Center(
+                          child: Text(
+                        "07707706545 - 07503807116",
+                        style: appstyle(12, Colors.black, FontWeight.w500),
+                      )),
+                      SizedBox(height: 5.h),
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -129,7 +135,7 @@ class AboutPage extends StatelessWidget {
                                 'assets/images/email.png',
                                 height: 20.h,
                               ),
-                              SizedBox(width: 5.w),
+                              SizedBox(width: 8.w),
                               Text(
                                 "Codify.iq@gmail.com",
                                 style:
@@ -144,7 +150,7 @@ class AboutPage extends StatelessWidget {
                                   height: 20.h,
                                 ),
                               ),
-                              SizedBox(width: 5.w),
+                              SizedBox(width: 8.w),
                               InkWell(
                                 onTap: () => _launchUrl(instagramUrl),
                                 child: Image.asset(
@@ -152,7 +158,7 @@ class AboutPage extends StatelessWidget {
                                   height: 20.h,
                                 ),
                               ),
-                              SizedBox(width: 5.w),
+                              SizedBox(width: 8.w),
                               InkWell(
                                 onTap: () => _launchUrl(linkedinUrl),
                                 child: Image.asset(
@@ -160,7 +166,7 @@ class AboutPage extends StatelessWidget {
                                   height: 20.h,
                                 ),
                               ),
-                              SizedBox(width: 5.w),
+                              SizedBox(width: 8.w),
                               InkWell(
                                 onTap: () => _launchUrl(tiktokUrl),
                                 child: Image.asset(
@@ -223,7 +229,7 @@ class AboutPage extends StatelessWidget {
                     ]),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(20.h),
+                    padding: EdgeInsets.all(15.h),
                     child: Column(children: [
                       Text(
                         "Our Team",
@@ -235,14 +241,14 @@ class AboutPage extends StatelessWidget {
                           children: [
                             Column(children: [
                               TeamInfo(
-                                picUrl: 'assets/images/linkedin.png',
+                                picUrl: 'assets/images/muhammad.jpg',
                                 name: 'Muhammad HamaSaeed',
                                 titlePosition: "Front-End Developer",
                               )
                             ]),
                             Column(children: [
                               TeamInfo(
-                                picUrl: 'assets/images/linkedin.png',
+                                picUrl: 'assets/images/hakar.jpg',
                                 name: 'Hakar Ali',
                                 titlePosition: "Front-End Developer",
                               )
@@ -254,14 +260,14 @@ class AboutPage extends StatelessWidget {
                           children: [
                             Column(children: [
                               TeamInfo(
-                                picUrl: 'assets/images/linkedin.png',
+                                picUrl: 'assets/images/hastyar.jpg',
                                 name: 'Hastyar Azad',
                                 titlePosition: "Back-End Developer",
                               )
                             ]),
                             Column(children: [
                               TeamInfo(
-                                picUrl: 'assets/images/linkedin.png',
+                                picUrl: 'assets/images/meeran.jpg',
                                 name: 'Meeran Mustafa',
                                 titlePosition: "Back-End Developer",
                               )
@@ -269,7 +275,7 @@ class AboutPage extends StatelessWidget {
                           ]),
                       const Padding(
                         padding: EdgeInsets.all(20),
-                        child: Text("@codify 2024"),
+                        child: Text("©codify 2024"),
                       )
                     ]),
                   )
