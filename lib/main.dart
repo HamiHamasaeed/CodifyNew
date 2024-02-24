@@ -1,8 +1,11 @@
 import 'package:codifyecommerce/views/shared/export.dart';
+import 'package:flutter_config/flutter_config.dart';
 import 'views/shared/export_packages.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
+  await FlutterConfig.loadEnvVariables();
 
   await Hive.initFlutter();
   await Hive.openBox("cart_box");
