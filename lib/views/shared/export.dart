@@ -28,3 +28,4 @@ export 'package:codifyecommerce/views/ui/product_page.dart';
 export 'package:codifyecommerce/views/ui/product_by_cart.dart';
 export 'new_arduino.dart';
 export 'package:codifyecommerce/views/shared/bottom_nav.dart';
+export 'package:codifyecommerce/views/shared/team_info.dart';

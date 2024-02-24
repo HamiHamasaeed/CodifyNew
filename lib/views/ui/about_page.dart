@@ -63,7 +63,7 @@ class AboutPage extends StatelessWidget {
             ]),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(16.h, 150.h, 16.h, 0),
+            padding: EdgeInsets.fromLTRB(16.w, 150.h, 16.w, 0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24.0),
               child: Image.asset(
@@ -75,118 +75,121 @@ class AboutPage extends StatelessWidget {
           ),
         ]),
         Expanded(
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Padding(
-              padding: EdgeInsets.all(8.h),
-              child: Column(children: [
-                Container(
-                  padding: EdgeInsets.all(12.h),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(24.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.3),
-                        spreadRadius: 2,
-                        blurRadius: 10,
-                        offset: const Offset(0, 1),
-                      ),
-                    ],
-                  ),
-                  width: 340.w,
-                  child: Column(children: [
-                    Text(
-                      "Who Are We?",
-                      style: appstyle(26, const Color.fromARGB(255, 31, 31, 31),
-                          FontWeight.w600),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(24),
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(8.w, 12.h, 8.w, 8.h),
+                child: Column(children: [
+                  Container(
+                    padding: EdgeInsets.all(12.h),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(24.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.3),
+                          spreadRadius: 2,
+                          blurRadius: 10,
+                          offset: const Offset(0, 1),
+                        ),
+                      ],
                     ),
-                    Container(
-                      padding: EdgeInsets.only(top: 5.w),
-                      child: Text(
-                        aboutParagraphe,
-                        style: appstyle(12, Colors.black, FontWeight.w500),
-                        textAlign: TextAlign.justify,
+                    width: 340.w,
+                    child: Column(children: [
+                      Text(
+                        "Who Are We?",
+                        style: appstyle(
+                            26,
+                            const Color.fromARGB(255, 31, 31, 31),
+                            FontWeight.w600),
                       ),
-                    ),
-                    SizedBox(height: 15.h),
-                    Center(
-                      child: Text(
-                        "Contact Us",
-                        style: appstyle(16, Colors.black, FontWeight.bold),
+                      Container(
+                        padding: EdgeInsets.only(top: 5.w),
+                        child: Text(
+                          aboutParagraphe,
+                          style: appstyle(12, Colors.black, FontWeight.w500),
+                          textAlign: TextAlign.justify,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 5.h),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(children: [
-                            Image.asset(
-                              'assets/images/email.png',
-                              height: 20.h,
-                            ),
-                            SizedBox(width: 5.w),
-                            Text(
-                              "Codify.iq@gmail.com",
-                              style:
-                                  appstyle(12, Colors.black, FontWeight.w500),
-                            ),
+                      SizedBox(height: 15.h),
+                      Center(
+                        child: Text(
+                          "Contact Us",
+                          style: appstyle(16, Colors.black, FontWeight.bold),
+                        ),
+                      ),
+                      SizedBox(height: 5.h),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(children: [
+                              Image.asset(
+                                'assets/images/email.png',
+                                height: 20.h,
+                              ),
+                              SizedBox(width: 5.w),
+                              Text(
+                                "Codify.iq@gmail.com",
+                                style:
+                                    appstyle(12, Colors.black, FontWeight.w500),
+                              ),
+                            ]),
+                            Row(children: [
+                              InkWell(
+                                onTap: () => _launchUrl(facebookUrl),
+                                child: Image.asset(
+                                  'assets/images/facebook.png',
+                                  height: 20.h,
+                                ),
+                              ),
+                              SizedBox(width: 5.w),
+                              InkWell(
+                                onTap: () => _launchUrl(instagramUrl),
+                                child: Image.asset(
+                                  'assets/images/instagram.png',
+                                  height: 20.h,
+                                ),
+                              ),
+                              SizedBox(width: 5.w),
+                              InkWell(
+                                onTap: () => _launchUrl(linkedinUrl),
+                                child: Image.asset(
+                                  'assets/images/linkedin.png',
+                                  height: 20.h,
+                                ),
+                              ),
+                              SizedBox(width: 5.w),
+                              InkWell(
+                                onTap: () => _launchUrl(tiktokUrl),
+                                child: Image.asset(
+                                  'assets/images/tiktok.png',
+                                  height: 20.h,
+                                ),
+                              ),
+                            ]),
                           ]),
-                          Row(children: [
-                            InkWell(
-                              onTap: () => _launchUrl(facebookUrl),
-                              child: Image.asset(
-                                'assets/images/facebook.png',
-                                height: 20.h,
-                              ),
-                            ),
-                            SizedBox(width: 5.w),
-                            InkWell(
-                              onTap: () => _launchUrl(instagramUrl),
-                              child: Image.asset(
-                                'assets/images/instagram.png',
-                                height: 20.h,
-                              ),
-                            ),
-                            SizedBox(width: 5.w),
-                            InkWell(
-                              onTap: () => _launchUrl(linkedinUrl),
-                              child: Image.asset(
-                                'assets/images/linkedin.png',
-                                height: 20.h,
-                              ),
-                            ),
-                            SizedBox(width: 5.w),
-                            InkWell(
-                              onTap: () => _launchUrl(tiktokUrl),
-                              child: Image.asset(
-                                'assets/images/tiktok.png',
-                                height: 20.h,
-                              ),
-                            ),
-                          ]),
-                        ]),
-                  ]),
-                ),
-                SizedBox(height: 15.h),
-                Container(
-                  padding: EdgeInsets.all(8.h),
-                  width: 340.w,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color.fromARGB(22, 174, 174, 174)
-                            .withOpacity(0.3), // Shadow color
-                        spreadRadius: 5.0, // Spread radius
-                        blurRadius: 10.0, // Blur radius
-                        offset: const Offset(1, 4), // Offset
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(24.0),
+                    ]),
                   ),
-                  child: Column(
-                    children: [
+                  SizedBox(height: 15.h),
+                  Container(
+                    padding: EdgeInsets.all(8.h),
+                    width: 340.w,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(22, 174, 174, 174)
+                              .withOpacity(0.3), // Shadow color
+                          spreadRadius: 5.0, // Spread radius
+                          blurRadius: 10.0, // Blur radius
+                          offset: const Offset(1, 4), // Offset
+                        )
+                      ],
+                      borderRadius: BorderRadius.circular(24.0),
+                    ),
+                    child: Column(children: [
                       Text(
                         "Address",
                         style: appstyle(26, Colors.black, FontWeight.bold),
@@ -196,29 +199,82 @@ class AboutPage extends StatelessWidget {
                         style: appstyle(10, Colors.black, FontWeight.w500),
                       ),
                       SizedBox(height: 10.h),
-                      SizedBox(
-                        height: 230.h,
-                        width: 340.h,
-                        child: GoogleMap(
-                          onMapCreated: _onMapCreated,
-                          mapType: MapType.normal,
-                          initialCameraPosition: CameraPosition(
-                            target: _center,
-                            zoom: 15.0,
-                          ),
-                          markers: {
-                            const Marker(
-                              markerId: MarkerId('demo'),
-                              position:
-                                  LatLng(35.55771617311098, 45.42851667365644),
-                            )
-                          },
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: SizedBox(
+                          height: 230.h,
+                          width: 340.h,
+                          child: GoogleMap(
+                              onMapCreated: _onMapCreated,
+                              mapType: MapType.normal,
+                              initialCameraPosition: CameraPosition(
+                                target: _center,
+                                zoom: 15.0,
+                              ),
+                              markers: {
+                                const Marker(
+                                  markerId: MarkerId('demo'),
+                                  position: LatLng(
+                                      35.55771617311098, 45.42851667365644),
+                                )
+                              }),
                         ),
                       ),
-                    ],
+                    ]),
                   ),
-                )
-              ]),
+                  Padding(
+                    padding: EdgeInsets.all(20.h),
+                    child: Column(children: [
+                      Text(
+                        "Our Team",
+                        style: appstyle(26, Colors.black, FontWeight.bold),
+                      ),
+                      SizedBox(height: 10.h),
+                      const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(children: [
+                              TeamInfo(
+                                picUrl: 'assets/images/linkedin.png',
+                                name: 'Muhammad HamaSaeed',
+                                titlePosition: "Front-End Developer",
+                              )
+                            ]),
+                            Column(children: [
+                              TeamInfo(
+                                picUrl: 'assets/images/linkedin.png',
+                                name: 'Hakar Ali',
+                                titlePosition: "Front-End Developer",
+                              )
+                            ])
+                          ]),
+                      SizedBox(height: 15.h),
+                      const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(children: [
+                              TeamInfo(
+                                picUrl: 'assets/images/linkedin.png',
+                                name: 'Hastyar Azad',
+                                titlePosition: "Back-End Developer",
+                              )
+                            ]),
+                            Column(children: [
+                              TeamInfo(
+                                picUrl: 'assets/images/linkedin.png',
+                                name: 'Meeran Mustafa',
+                                titlePosition: "Back-End Developer",
+                              )
+                            ]),
+                          ]),
+                      const Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Text("@codify 2024"),
+                      )
+                    ]),
+                  )
+                ]),
+              ),
             ),
           ),
         ),
